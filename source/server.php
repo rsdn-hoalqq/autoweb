@@ -1,4 +1,5 @@
 <?php
+var_dump('test');exit;
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
