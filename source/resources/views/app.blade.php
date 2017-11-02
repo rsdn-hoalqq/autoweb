@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Laravel</title>
 
-	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+	<link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -19,7 +19,7 @@
 	<![endif]-->
 </head>
 <body>
-	<nav class="navbar navbar-default">
+	{{-- <nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -51,12 +51,44 @@
 				</ul>
 			</div>
 		</div>
+	</nav> --}}
+	<nav class="navbar navbar-inverse">
+	  {{-- <div class="container-fluid"> --}}
+	  <div class="container">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">Admin Manager</a>
+	    </div>
+	    <ul class="nav navbar-nav">
+	      <li class="active"><a href="#">Trang chủ</a></li>
+	      <li><a href="#">Categories</a></li>
+	      <li><a href="#">Products</a></li>
+	      <li><a href="#">Images</a></li>
+	      <li><a href="#">Videos</a></li>
+	    </ul>
+	    <ul class="nav navbar-nav navbar-right">
+			@if (Auth::guest())
+				<li><a href="{{ url('/auth/login') }}">Login</a></li>
+				<li><a href="{{ url('/auth/register') }}">Register</a></li>
+			@else
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="{{ url('/auth/logout') }}">Logout</a></li>
+					</ul>
+				</li>
+			@endif
+		</ul>
+	  </div>
 	</nav>
-
-	@yield('content')
+	<div class="class="container"">		
+		<div class="row">
+			{{-- <img src="{{ asset('files/icon/Thiên nhiên gia hoà.jpg')}}" alt="Thiên nhiên hài hòa"> --}}
+			@yield('content')
+		</div>
+	</div>
 
 	<!-- Scripts -->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="{{ asset('/js/jquery.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('/js/bootstrap.min.js') }}"></script>
 </body>
 </html>

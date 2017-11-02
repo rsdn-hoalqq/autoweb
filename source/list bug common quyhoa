@@ -1,0 +1,24 @@
+ 1.bug phat sinh khi chay command line: php artisan migrate
+ [Illuminate\Database\QueryException]
+  SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes (SQ
+  L: alter table `users` add unique `users_email_unique`(`email`))
+
+  ========>fix
+  edit file: \app\Providers\AppServiceProvider.php
+  content edit:
+  	use Illuminate\Support\Facades\Schema;
+
+	function boot()
+	{
+	    Schema::defaultStringLength(191);
+	}
+  ===========
+  2. sữ dụng form
+    -chạy lệnh: composer require laravelcollective/html
+    - thêm lệnh \config\app.php
+      Collective\Html\HtmlServiceProvider::class,
+      'Form' => Collective\Html\FormFacade::class,
+      'Html' => Collective\Html\HtmlFacade::class,
+  3. tạo mới record với javascript
+  var td_model = document.getElementById('td_model5');  
+  var td_model1 = td_model.cloneNode(true); // copy children too  
