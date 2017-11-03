@@ -34,8 +34,6 @@ Auth::routes();
 Route::prefix('admin')->middleware('checkUser')->group(function () {
     Route::get('/', function () {
     	return view('admin/dashboard');
-    	// return redirect()->route('categoryList');
-        // Only authenticated users may enter...
     })->name('admin');
 
 	Route::prefix('chuyen-muc')->group(function () {

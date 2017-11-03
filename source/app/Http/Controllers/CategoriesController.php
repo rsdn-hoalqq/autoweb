@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\CategoryRequest;
+use App\Http\Requests\EditCategoryRequest;
 use App\Categories;
 class CategoriesController extends Controller
 {
@@ -24,18 +25,24 @@ class CategoriesController extends Controller
     }
     // get
     public function getEdit($id){
+        $cates = Categories::select('id','name')->get()->toArray();
     	$data = Categories::findOrFail($id)->toArray();
-    	// $cate = Categories::findOrFail($id)->toArray();/
-    	return view('admin.category.edit',compact('data'));
-    	print_r($cate);
+        print_r($data);
+    	// $cate = Categories::findOrFail($id)->toArray();
+    	return view('admin.category.edit',compact('data','cates'));
+    	// print_r($cate);
     }
 
-    public function postEdit($id){
-    	echo $id;
-    	// $data = Categories::findOrFail($id)->toArray();
-    	// // $cate = Categories::findOrFail($id)->toArray();/
-    	// return view('admin.category.edit',compact('data'));
-    	// print_r($cate);
+    public function postEdit(EditCategoryRequest $request, $id){
+    	$cates = Categories::find($id);
+        $cates->name = $request->txtName;
+        $cates->slug = $request->txtName;
+        $cates->parent_id = $request->parent;
+        $cates->keywords = $request->keywords;
+        // Categories::where('id', $id)->update($request->all());
+        // echo $cates->keywords;
+        $cates->save();
+        return redirect('admin/chuyen-muc/index')->with(['alert'=>'success','message_flag'=>'Update chuyên mục thành công']);
     }
     public function delete($id){
     	$cate = Categories::where('id',$id)->delete();

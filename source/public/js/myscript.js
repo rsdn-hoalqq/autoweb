@@ -1,4 +1,8 @@
+// hidden alert
 $('div.alert').delay(3000).slideUp();
+// uses ckeditor
+CKEDITOR.replace( 'ckeditor' ); 
+// handle model
 function openModal() {
   document.getElementById('myModal').style.display = "block";
 }

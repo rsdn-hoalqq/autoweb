@@ -2,7 +2,7 @@
   CKEDITOR.replace( 'ckeditor' );  
 </script>
 @if(isset($data))
-  <form action="{!! route('addCategory')!!}" method="post">
+  <form action="{!! route('postEdit',$data['id'])!!}" method="post">
 @else
   <form action="{!! route('addCategory')!!}" method="post">
 @endif
@@ -10,7 +10,16 @@
 	<div class="form-group">
     <label for="select">Chuyên mục cha</label>
     	<select class="form-control" name="parent">
-	  	<option value="0">Chọn chuyên mục</option>
+        <option value="0">Chọn chuyên mục</option>
+        @if(isset($cates))
+          @foreach($cates as $cate)
+            @if(isset($data) && $data['parent_id'] == $cate['id'])
+              <option value="0" selected="selected">{!! $cate['name'] !!}</option>
+            @else
+              <option value="0">{!! $cate['name'] !!}</option>
+            @endif            
+          @endforeach
+        @endif	  	
 	</select>     
   </div>
   <div class="form-group">
@@ -20,10 +29,10 @@
   </div>
   <div class="form-group">
     <label for="text">Keywords</label>
-    <input type="text" class="form-control" name="keywords" placeholder="" value="{{ old('keywords',isset($data) ? $data['name'] : '') }}">
+    <input type="text" class="form-control" name="keywords" placeholder="" value="{{ old('keywords',isset($data) ? $data['keywords'] : '') }}">
   </div>
   <div class="form-group">
-  <label for="comment">Comment:</label>
+  <label for="comment">Giới thiệu:</label>
   <textarea class="form-control ckeditor" rows="5" id="comment" name="textarea"></textarea>
 </div>
   {{-- <div class="checkbox">
