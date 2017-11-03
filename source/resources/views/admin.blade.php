@@ -32,10 +32,10 @@
 	    </div>
 	    <ul class="nav navbar-nav">
 	      {{-- <li class="active"><a href="#">Trang chủ</a></li> --}}
-	      <li><a href="{{env('ADMIN_CATEGORY_PATH').'/index'}}">Categories</a></li>
-	      <li><a href="{{env('ADMIN_CATEGORY_PATH').'/index'}}">Products</a></li>
-	      <li><a href="#">Images</a></li>
-	      <li><a href="#">Videos</a></li>
+	      <li><a href="{{ route('categoryList')}}">Categories</a></li>
+	      <li><a href="{{ route('trangchu')}}">Products</a></li>
+	      <li><a href="{{ route('trangchu')}}">Images</a></li>
+	      <li><a href="{{ route('trangchu')}}">Videos</a></li>
 	    </ul>
 	    <ul class="nav navbar-nav navbar-right">
 			@if (Auth::guest())

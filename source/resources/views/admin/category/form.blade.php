@@ -1,6 +1,6 @@
 <script type="text/javascript">  
-     CKEDITOR.replace( 'ckeditor' );  
-  </script>
+  CKEDITOR.replace( 'ckeditor' );  
+</script>
 @if(isset($data))
   <form action="{!! route('addCategory')!!}" method="post">
 @else

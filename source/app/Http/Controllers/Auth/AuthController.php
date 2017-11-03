@@ -8,6 +8,7 @@ use App\Http\Requests\UserRequest;
 use App\Http\Requests\LoginRequest;
 use App\User;
 use Hash;
+
 class AuthController extends Controller {
 
 	/*
@@ -64,10 +65,12 @@ class AuthController extends Controller {
 		);
 		// if(Auth::attempt($auth)){
 		if($this->auth->attempt($auth)){
-			return redirect('/');
+			// echo "<pre>";
+			// print_r($request);
+			// return redirect(\URL::previous());
+			return redirect()->route('admin');
 		}else{
 			return redirect('auth/login');
 		}
 	}
-
 }
