@@ -47,11 +47,41 @@
         <div class="panel panel-default">
           <div class="panel-heading headings">DANH MỤC QUẢN LÝ</div>
             <ul class="list-group">
-              <li class="list-group-item"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> <a href="{{ route('categoryList')}}">QUẢN LÝ MENU HIỂN THỊ</a></li>
-              <li class="list-group-item"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> <a href="">QUẢN LÝ BÀI HỌC</a></li>
-              <li class="list-group-item"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> <a href="">QUẢN LÝ SẢN PHẨM</a></li>
-              <li class="list-group-item"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> <a href="">QUẢN LÝ HÌNH ẢNH</a></li>
-              <li class="list-group-item"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> <a href="">QUẢN LÝ VIDEO</a></li>
+              <li class="list-group-item">
+                <span class="glyphicon glyphicon-book" aria-hidden="true"></span> 
+                <a href="{{ route('categoryList')}}">QUẢN LÝ MENU HIỂN THỊ</a>
+                <a href="{{ route('addCate') }}" class="btn btn-success clIcon" data-toggle="tooltip" title="Tạo mới chuên mục!">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </a>
+              </li>
+              <li class="list-group-item">
+                <span class="glyphicon glyphicon-book" aria-hidden="true"></span> 
+                <a href="">QUẢN LÝ BÀI HỌC</a>
+                <a href="{{ route('addCate') }}" class="btn btn-success clIcon" data-toggle="tooltip" title="Tạo mới Khóa học!">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </a>
+              </li>
+              <li class="list-group-item">
+                <span class="glyphicon glyphicon-book" aria-hidden="true"></span> 
+                <a href="">QUẢN LÝ SẢN PHẨM</a>
+                <a href="{{ route('addProduct') }}" class="btn btn-success clIcon" data-toggle="tooltip" title="Tạo mới sản phẩm!">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </a>
+              </li>
+              <li class="list-group-item">
+                <span class="glyphicon glyphicon-book" aria-hidden="true"></span> 
+                <a href="">QUẢN LÝ HÌNH ẢNH</a>
+                <a href="{{'add'}}" class="btn btn-success clIcon" data-toggle="tooltip" title="Tạo mới hình ảnh!">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </a>
+              </li>
+              <li class="list-group-item">
+                <span class="glyphicon glyphicon-book" aria-hidden="true"></span> 
+                <a href="">QUẢN LÝ VIDEO</a>
+                <a href="{{'add'}}" class="btn btn-success clIcon" data-toggle="tooltip" title="Tạo mới video!">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </a>
+              </li>
             </ul>
         </div>
       </div>
@@ -65,5 +95,6 @@
   <script type="text/javascript" src="{{ asset('/js/jquery.min.js') }}"></script>
   <script type="text/javascript" src="{{ asset('/js/bootstrap.min.js') }}"></script>
   <script type="text/javascript" src="{{ asset('/js/myscript.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('/js/admin/adminscript.js') }}"></script>
 </body>
 </html>

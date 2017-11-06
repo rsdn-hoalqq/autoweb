@@ -35,7 +35,7 @@
 				    		<td>{!! $category['order_by'] !!}</td>
 				    		<td>
 				    			<a href="{{'edit/'.$category['id']}}" class="btn btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></a>
-				    			<a href="{{'delete/'.$category['id']}}" class="btn btn-success" onclick="return confirm('Are you sure you want to delete this item?');"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+				    			<a href="{{'delete/'.$category['id']}}" class="btn btn-success" onclick="return confirm('Are you sure you want to delete this item?');"><img src="{{ asset('files/icon/delete.png')}}" alt="delete" width="20"></a>
 				    		</td>
 				    	</tr>
 				    @endforeach

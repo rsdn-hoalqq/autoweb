@@ -3,3 +3,10 @@
   font-weight: bold;
   color: blue !important;
 }
+.clIcon{
+  float: right;
+  margin-top: -7px;
+}
+.clsImage{
+	margin: 5px 0px;
+}

@@ -17,9 +17,11 @@ class CreateProductTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('description');
+            $table->text('content');
             $table->integer('price');
             $table->integer('cate_id');
             $table->boolean('status');
+            $table->boolean('type');
             $table->timestamps();
         });
     }

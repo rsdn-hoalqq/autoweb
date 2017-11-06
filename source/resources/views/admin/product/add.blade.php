@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="panel panel-default">
-	<div class="panel-heading headings">FORM THÊM MỚI CHUYÊN MỤC</div>
+	<div class="panel-heading headings">FORM THÊM MỚI SẢN PHẨM</div>
 	@if (count($errors) > 0)
 	    <div class="alert alert-danger">
 	        <ul>
@@ -13,7 +13,7 @@
 	    </div>
 	@endif
 	<div class="panel-body">
-		@include('admin.category.form',['btnAction'=>'Thêm mới','cates'=>$cates])
+		@include('admin.product.form',['btnAction'=>'Thêm mới','cates'=>$cates])
 	</div>
 </div>
   

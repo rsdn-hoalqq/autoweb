@@ -1,24 +1,27 @@
-<script type="text/javascript">  
-  CKEDITOR.replace( 'ckeditor' );  
-</script>
 @if(isset($data))
+  <?php $selected = $data['parent_id'];?>
   <form action="{!! route('postEdit',$data['id'])!!}" method="post">
 @else
+  <?php $selected = '0';?>
   <form action="{!! route('addCategory')!!}" method="post">
 @endif
 	<input type="hidden" name="_token" value="{!! csrf_token()!!}">
 	<div class="form-group">
-    <label for="select">Chuyên mục cha</label>
+    <label for="select">Chuyên mục cha</label>    
     	<select class="form-control" name="parent">
         <option value="0">Chọn chuyên mục</option>
-        @if(isset($cates))
-          @foreach($cates as $cate)
+        @if(isset($cates))        
+          <?php
+          // show cate
+            Response::showCates($cates,$selected);
+          ?>
+          {{-- @foreach($cates as $cate)
             @if(isset($data) && $data['parent_id'] == $cate['id'])
-              <option value="0" selected="selected">{!! $cate['name'] !!}</option>
+              <option value="{{ $cate['id'] }}" selected="selected">{!! $cate['name'] !!}</option>
             @else
-              <option value="0">{!! $cate['name'] !!}</option>
+              <option value="{{ $cate['id'] }}">{!! $cate['name'] !!}</option>
             @endif            
-          @endforeach
+          @endforeach --}}
         @endif	  	
 	</select>     
   </div>
@@ -30,6 +33,10 @@
   <div class="form-group">
     <label for="text">Keywords</label>
     <input type="text" class="form-control" name="keywords" placeholder="" value="{{ old('keywords',isset($data) ? $data['keywords'] : '') }}">
+  </div>
+  <div class="form-group">
+    <label for="text">Thứ tự sắp xếp</label>
+    <input type="text" class="form-control" name="order_by" placeholder="" value="{{ old('keywords',isset($data) ? $data['order_by'] : '') }}">
   </div>
   <div class="form-group">
   <label for="comment">Giới thiệu:</label>
