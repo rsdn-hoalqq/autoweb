@@ -11,9 +11,12 @@ use App\Product;
 use App\User;
 use App\Images;
 use DB;
+use Session;
 class ProductController extends Controller
 {
-    public function getAdd(){
+    public function getAdd(Request $request){
+    	// $makeSession = $request->session()->put('key', 'value');
+    	// echo $request->session()->get('key');
     	$cates = Categories::select('id','name','parent_id')->orderBy('order_by')->get()->toArray();
     	return view('admin/product/add',compact('cates'));
     }

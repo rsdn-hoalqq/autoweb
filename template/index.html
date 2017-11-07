@@ -8,6 +8,10 @@
   <script src="public/js/jquery.min.js"></script>
   <script src="public/js/bootstrap.min.js"></script>
   <style>
+  a:hover {
+    color: #333;
+    text-decoration: none!important;
+  }
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
       margin-bottom: 0;
@@ -38,7 +42,8 @@
     body {
   /*font-family: Verdana, sans-serif;*/
   margin: 0;
-  background: gold;
+  /*font-family: 'Roboto Condensed', sans-serif !important;*/
+  /*background: gold;*/
 }
 
 * {
@@ -69,7 +74,7 @@
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: black;
+  background-color: brown;
 }
 
 /* Modal Content */
@@ -200,18 +205,154 @@ img.hover-shadow {
     font-family: cursive;
     font-weight: bold !important;
   }
+#mainmenu {
+    background: #a81821;
+    /*box-shadow: -1px 3px 5px #888;*/
+}
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+li.actives {
+    background: #0655A6 !important;
+}
+#register-email {
+    background: #dedede;
+    clear: both;
+    margin-bottom: -13px;
+}
+#register-email .main {
+    padding: 8px 0;
+    background: url(bg-register.png) no-repeat scroll left center transparent;
+}
+#intro-text {
+    font-size: 16px;
+    padding-top: 3px;
+    margin-left: 70px;
+}
+.pull-left {
+    float: left !important;
+}
+form {
+    margin-bottom: 1em;
+}
+form {
+    display: block;
+    margin-top: 0em;
+}
+.text-color{
+  color: white !important;  
+  font-size: 16px;
+}
+.product-row {
+    background-color: #FFF;
+    /*margin-bottom: 30px;*/
+    border: 1px solid #FFF;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+.product-row-img {
+    display: block;
+    overflow: hidden;
+    /* position: relative; */
+    width: 100%;
+    height: 470px;
+    background: #FFF;
+}
+.product-row-info {
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.pull-right {
+    float: right !important;
+}
+.product-row-sale {
+    font-size: 20px;
+    color: #555555;
+    font-weight: 700;
+}
+.product-row-note {
+    font-size: 14px;
+    color: #FFF;
+    padding-top: 7px;
+    font-style: italic;
+}
+.product-row:hover {
+  border: 1px solid #F1DF8D;
+  box-shadow: none;
+}
+.product-row-thumbnail {
+  width: 100%;
+}
+.product-row-price-hover {
+    background: none repeat scroll 0 0 rgba(241, 223, 141, .8);
+    color: #fff!important;
+    font-size: 13px;
+    left: 0;
+    padding: 10px;
+    position: absolute;
+    transition: bottom 0.5s ease 0s;
+    width: 100%;
+    display: none;
+}
+.product-row:hover .product-row-price-hover {
+    bottom: 138px;
+    transition: bottom 0.5s ease 0s;
+    display: block;
+    width: 94%;
+    margin-left: 16px !important;
+}
+.product-row-btnbuy {
+  padding: 5px 12px;
+  background: #252525;
+  color: #FFF;
+  margin-top: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.product-row-btnbuy:hover {
+    background-color: #0655A6;
+    color: #FFF;
+}
+.div-sm4{
+  margin-bottom: 10px;
+  height: 610px;
+}
+.item-carts{
+  height: 70px;
+  width: 70px;
+  /*background: brown;*/
+  position: fixed;
+  top: 100px;
+  right: 10px;
+  /*text-align: center;*/
+  border-radius: 7px; 
+  z-index: 10;
+  /*background-image: url('public/files/cart.jpg');*/
+}
+.sty-a{
+  font-size: 16px;
+  font-weight: bold;
+}
+.cart{
 
-  </style>
+}
+</style>
 </head>
 <body>
-<div class="jumbotron">
+  <div class="item-carts">
+    <a href="" data-toggle="tooltip" title="Xem giỏ hàng"><img src="public/files/cart.jpg" style="width: 70px;border-radius: 40px;" alt="cart"></a> 
+  </div>
+<div class="jumbotron">  
   <div class="container text-center header-logos">
     <h1>Thư Họa Phong Trần</h1>      
     <p>Thăng Hoa Nét Viết</p>
-    <!-- <img src="public/files/headerImage.jpg" alt=""> -->
   </div>
 </div>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" id="mainmenu">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -219,45 +360,50 @@ img.hover-shadow {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">My Shop</a>
+      <a class="navbar-brand text-color" href="#">TRANH THƯ PHÁP</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="jligthBox.html">Gallery</a></li>
-        <li><a href="#">Góc Thư Họa</a></li>
-        <li><a href="slide.html">Slides</a></li>
+        <li class="actives text-color"><a href="/"><span class="glyphicon glyphicon-home text-color" aria-hidden="true"></span></a></li>
+        <li><a href="#" class="text-color">Home</a></li>
+        <li><a href="#" class="text-color">About</a></li>
+        <li><a href="jligthBox.html" class="text-color">Gallery</a></li>
+        <li><a href="#" class="text-color">Góc Thư Họa</a></li>
+        <li><a href="slide.html" class="text-color">Slides</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="#" class="text-color"><span class="glyphicon glyphicon-log-in text-color"></span> Đăng nhập</a></li>
+        <li><a href="#" class="text-color"><span class="glyphicon glyphicon-user text-color" aria-hidden="true"></span> Đăng kí</a></li>
       </ul>
     </div>
   </div>
 </nav>
   
 <div class="container-fluid bg-3">    
-  <!-- <h3>Danh sách tranh</h3><br> -->
-  <br>
   <div class="row"> 
+    <br>
     <div class="col-sm-2 sidenav hidden-xs">
-      <!-- <ul class="nav nav-pills nav-stacked">
-      <li class="active"><a href="#">Tranh Thủy mặc</a></li>
-      <li><a href="#">Tranh Sơn Thủy</a></li>
-      <li><a href="#">Tranh Hoa Điểu</a></li>
-    </ul> -->
       <div class="panel panel-default">
         <div class="panel-heading headings">DANH SÁCH PHÂN LOẠI</div>
           <ul class="list-group">
-            <li class="list-group-item"><a href="#">Tranh Thủy mặc</a></li>
-            <li class="list-group-item"><a href="">Tranh Sơn Thủy</a></li>
-            <li class="list-group-item"><a href="">Tranh Hoa Điểu</a></li>
+            <li class="list-group-item"><a href="#" class="sty-a">Tranh Thủy mặc</a></li>
+            <li class="list-group-item"><a href="" class="sty-a">Tranh Sơn Thủy</a></li>
+            <li class="list-group-item"><a href="" class="sty-a">Tranh Hoa Điểu</a></li>
           </ul>
+      </div>
+      <div class="banner">
+        <img src="public/files/banner-doc-2.jpg" alt="banner" style="width: 286px;">
+      </div>
+      <br>
+      <div class="panel panel-default">
+        <div class="panel-heading headings">THỐNG KÊ NGƯỜI DÙNG</div>
+        <p>Số người đăng online: 100</p>
+        <p>Số người đã đăng kí: 100</p>
       </div>
     </div>
     <div class="col-sm-10">
       <div class="panel panel-default">
-        <div class="panel-heading headings">TRANH MỚI NHẤT</div>
+        <div class="panel-heading"><a href="/" class="headings">VIDEO VẼ NGHỆ THUẬT</a></div>
         <div class="panel-body">
           <div class="row text-center">        
             <div class="col-sm-4 clMaxHeight">          
@@ -286,76 +432,324 @@ img.hover-shadow {
               <div class="comment"></div>          
             </div>
 
-            <div class="col-sm-4"> 
-              <p class="cls_font">Thư pháp Trần Thế</p>
-              <img src="public/files/2.jpg" class="img-responsive" style="width:100%" alt="Image">
+            <div class="col-sm-4 clMaxHeight">          
+              <div class="title">
+                <p class="cls_font">Thư pháp Trần Thế</p>
+              </div>
+              <div class="videos">
+                <iframe style="width:100%" height="400" src="https://www.youtube.com/embed/tfUjUxUo1f0" frameborder="0" gesture="media" allowfullscreen></iframe>
+              </div>
+              <div class="clImages">
+                <div class="row">
+                  <div class="column">
+                    <img src="public/files/1.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                  </div>
+                  <div class="column">
+                    <img src="public/files/2.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+                  </div>
+                  <div class="column">
+                    <img src="public/files/3.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+                  </div>
+                  <div class="column">
+                    <img src="public/files/4.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+                  </div>
+                </div>
+              </div>
+              <div class="comment"></div>          
             </div>
-            <div class="col-sm-4"> 
-              <p class="cls_font">Thư pháp Trần Thế</p>
-              <img src="public/files/3.jpg" class="img-responsive" style="width:100%" alt="Image">
+            <div class="col-sm-4 clMaxHeight">          
+              <div class="title">
+                <p class="cls_font">Thư pháp Trần Thế</p>
+              </div>
+              <div class="videos">
+                <iframe style="width:100%" height="400" src="https://www.youtube.com/embed/tfUjUxUo1f0" frameborder="0" gesture="media" allowfullscreen></iframe>
+              </div>
+              <div class="clImages">
+                <div class="row">
+                  <div class="column">
+                    <img src="public/files/1.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+                  </div>
+                  <div class="column">
+                    <img src="public/files/2.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+                  </div>
+                  <div class="column">
+                    <img src="public/files/3.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+                  </div>
+                  <div class="column">
+                    <img src="public/files/4.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+                  </div>
+                </div>
+              </div>
+              <div class="comment"></div>          
             </div>
           </div>
         </div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-heading headings">TRANH BÁN CHẠY NHẤT</div>
+        <div class="panel-heading"><a href="/" class="headings">TRANH MỚI NHẤT</a></div>
         <div class="panel-body">
           <div class="row">
-            <div class="col-sm-4">
-              <p class="cls_font">Thư pháp Trần Thế</p>
-              <img src="public/files/4.jpg" class="img-responsive" style="width:100%" alt="Image">
+            <div class="col-sm-4 div-sm4">
+              <div class="product-row">
+                <div class="product-row-img">
+                  <a href="/">
+                    <img class="product-row-thumbnail" src="public/files/4.jpg" style="width:100%" alt="khăn lụa kết hoa tay">
+                  </a>
+                  <div class="product-row-price-hover"><a href="/products/khan-lua-ket-hoa-tay-5">
+                    <div class="product-row-note pull-left">Đăng kí email để xem giá sỉ</div>
+                    </a><a href="/products/khan-lua-ket-hoa-tay-5" class="product-row-btnbuy pull-right">Đặt hàng</a>
+                  </div>
+                </div>
+                <div>
+                  <p class="cls_font text-center">Thư pháp Trần Thế</p>
+                  <hr>
+                </div>                
+                <div class="product-row-info">        
+                  <div class="product-row-price pull-left"><br><span class="product-row-sale">350,000₫</span></div>
+                  <span class="product-row-counts pull-right"><i class="small">Còn</i>
+                  <br>
+                  <strong>1</strong></span>
+                  <div class="clearfix"></div>
+                </div>
+              </div>              
             </div>
-            <div class="col-sm-4">
-              <p class="cls_font">Thư pháp Trần Thế</p>
-              <img src="public/files/5.jpg" class="img-responsive" style="width:100%" alt="Image">
+
+            <div class="col-sm-4 div-sm4">
+              <div class="product-row">
+                <div class="product-row-img">
+                  <a href="/">
+                    <img class="product-row-thumbnail" src="public/files/5.jpg" style="width:100%" alt="khăn lụa kết hoa tay">
+                  </a>
+                  <div class="product-row-price-hover"><a href="/products/khan-lua-ket-hoa-tay-5">
+                    <div class="product-row-note pull-left">Đăng kí email để xem giá sỉ</div>
+                    </a><a href="/products/khan-lua-ket-hoa-tay-5" class="product-row-btnbuy pull-right">Đặt hàng</a>
+                  </div>
+                </div>
+                <div>
+                  <p class="cls_font text-center">Thư pháp Trần Thế</p>
+                  <hr>
+                </div>                
+                <div class="product-row-info">        
+                  <div class="product-row-price pull-left"><br><span class="product-row-sale">350,000₫</span></div>
+                  <span class="product-row-counts pull-right"><i class="small">Còn</i>
+                  <br>
+                  <strong>1</strong></span>
+                  <div class="clearfix"></div>
+                </div>
+              </div>              
             </div>
-            <div class="col-sm-4">
-              <p class="cls_font">Thư pháp Trần Thế</p>
-              <img src="public/files/6.jpg" class="img-responsive" style="width:100%" alt="Image">
+
+            <div class="col-sm-4 div-sm4">
+              <div class="product-row">
+                <div class="product-row-img">
+                  <a href="/">
+                    <img class="product-row-thumbnail" src="public/files/6.jpg" style="width:100%" alt="khăn lụa kết hoa tay">
+                  </a>
+                  <div class="product-row-price-hover"><a href="/products/khan-lua-ket-hoa-tay-5">
+                    <div class="product-row-note pull-left">Đăng kí email để xem giá sỉ</div>
+                    </a><a href="/products/khan-lua-ket-hoa-tay-5" class="product-row-btnbuy pull-right">Đặt hàng</a>
+                  </div>
+                </div>
+                <div>
+                  <p class="cls_font text-center">Thư pháp Trần Thế</p>
+                  <hr>
+                </div>                
+                <div class="product-row-info">        
+                  <div class="product-row-price pull-left"><br><span class="product-row-sale">350,000₫</span></div>
+                  <span class="product-row-counts pull-right"><i class="small">Còn</i>
+                  <br>
+                  <strong>1</strong></span>
+                  <div class="clearfix"></div>
+                </div>
+              </div>              
             </div>
-            <div class="col-sm-4">
-              <p class="cls_font">Thư pháp Trần Thế</p>
-              <img src="public/files/7.jpg" class="img-responsive" style="width:100%" alt="Image">
+
+            <div class="col-sm-4 div-sm4">
+              <div class="product-row">
+                <div class="product-row-img">
+                  <a href="/">
+                    <img class="product-row-thumbnail" src="public/files/7.jpg" style="width:100%" alt="khăn lụa kết hoa tay">
+                  </a>
+                  <div class="product-row-price-hover"><a href="/products/khan-lua-ket-hoa-tay-5">
+                    <div class="product-row-note pull-left">Đăng kí email để xem giá sỉ</div>
+                    </a><a href="/products/khan-lua-ket-hoa-tay-5" class="product-row-btnbuy pull-right">Đặt hàng</a>
+                  </div>
+                </div>
+                <div>
+                  <p class="cls_font text-center">Thư pháp Trần Thế</p>
+                  <hr>
+                </div>                
+                <div class="product-row-info">        
+                  <div class="product-row-price pull-left"><br><span class="product-row-sale">350,000₫</span></div>
+                  <span class="product-row-counts pull-right"><i class="small">Còn</i>
+                  <br>
+                  <strong>1</strong></span>
+                  <div class="clearfix"></div>
+                </div>
+              </div>              
             </div>
-            <div class="col-sm-4">
-              <p class="cls_font">Thư pháp Trần Thế</p>
-              <img src="public/files/8.jpg" class="img-responsive" style="width:100%" alt="Image">
+
+            <div class="col-sm-4 div-sm4">
+              <div class="product-row">
+                <div class="product-row-img">
+                  <a href="/">
+                    <img class="product-row-thumbnail" src="public/files/8.jpg" style="width:100%" alt="khăn lụa kết hoa tay">
+                  </a>
+                  <div class="product-row-price-hover"><a href="/products/khan-lua-ket-hoa-tay-5">
+                    <div class="product-row-note pull-left">Đăng kí email để xem giá sỉ</div>
+                    </a><a href="/products/khan-lua-ket-hoa-tay-5" class="product-row-btnbuy pull-right">Đặt hàng</a>
+                  </div>
+                </div>
+                <div>
+                  <p class="cls_font text-center">Thư pháp Trần Thế</p>
+                  <hr>
+                </div>                
+                <div class="product-row-info">        
+                  <div class="product-row-price pull-left"><br><span class="product-row-sale">350,000₫</span></div>
+                  <span class="product-row-counts pull-right"><i class="small">Còn</i>
+                  <br>
+                  <strong>1</strong></span>
+                  <div class="clearfix"></div>
+                </div>
+              </div>              
             </div>
-            <div class="col-sm-4">
-              <p class="cls_font">Thư pháp Trần Thế</p>
-              <img src="public/files/5.jpg" class="img-responsive" style="width:100%" alt="Image">
+
+            <div class="col-sm-4 div-sm4">
+              <div class="product-row">
+                <div class="product-row-img">
+                  <a href="/">
+                    <img class="product-row-thumbnail" src="public/files/5.jpg" style="width:100%" alt="khăn lụa kết hoa tay">
+                  </a>
+                  <div class="product-row-price-hover"><a href="/products/khan-lua-ket-hoa-tay-5">
+                    <div class="product-row-note pull-left">Đăng kí email để xem giá sỉ</div>
+                    </a><a href="/products/khan-lua-ket-hoa-tay-5" class="product-row-btnbuy pull-right">Đặt hàng</a>
+                  </div>
+                </div>
+                <div>
+                  <p class="cls_font text-center">Thư pháp Trần Thế</p>
+                  <hr>
+                </div>                
+                <div class="product-row-info">        
+                  <div class="product-row-price pull-left"><br><span class="product-row-sale">350,000₫</span></div>
+                  <span class="product-row-counts pull-right"><i class="small">Còn</i>
+                  <br>
+                  <strong>1</strong></span>
+                  <div class="clearfix"></div>
+                </div>
+              </div>              
             </div>
           </div>
         </div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-heading headings">TRANH XEM NHIỀU NHẤT</div>
+        <div class="panel-heading"><a href="/" class="headings">TRANH XEM NHIỀU NHẤT</a></div>
         <div class="panel-body">
           <div class="row">
-            <div class="col-sm-4">
-              <p class="cls_font">Thư pháp Trần Thế</p>
-              <img src="public/files/1.jpg" class="img-responsive" style="width:100%" alt="Image">
+            <div class="col-sm-4 div-sm4">
+              <div class="product-row">
+                <div class="product-row-img">
+                  <a href="/">
+                    <img class="product-row-thumbnail" src="public/files/1.jpg" style="width:100%" alt="khăn lụa kết hoa tay">
+                  </a>
+                  <div class="product-row-price-hover"><a href="/products/khan-lua-ket-hoa-tay-5">
+                    <div class="product-row-note pull-left">Đăng kí email để xem giá sỉ</div>
+                    </a><a href="/products/khan-lua-ket-hoa-tay-5" class="product-row-btnbuy pull-right">Đặt hàng</a>
+                  </div>
+                </div>
+                <div>
+                  <p class="cls_font text-center">Thư pháp Trần Thế</p>
+                  <hr>
+                </div>                
+                <div class="product-row-info">        
+                  <div class="product-row-price pull-left"><br><span class="product-row-sale">350,000₫</span></div>
+                  <span class="product-row-counts pull-right"><i class="small">Còn</i>
+                  <br>
+                  <strong>1</strong></span>
+                  <div class="clearfix"></div>
+                </div>
+              </div>              
             </div>
-            <div class="col-sm-4">
-              <p class="cls_font">Thư pháp Trần Thế</p>
-              <img src="public/files/4.jpg" class="img-responsive" style="width:100%" alt="Image">
+
+            <div class="col-sm-4 div-sm4">
+              <div class="product-row">
+                <div class="product-row-img">
+                  <a href="/">
+                    <img class="product-row-thumbnail" src="public/files/4.jpg" style="width:100%" alt="khăn lụa kết hoa tay">
+                  </a>
+                  <div class="product-row-price-hover"><a href="/products/khan-lua-ket-hoa-tay-5">
+                    <div class="product-row-note pull-left">Đăng kí email để xem giá sỉ</div>
+                    </a><a href="/products/khan-lua-ket-hoa-tay-5" class="product-row-btnbuy pull-right">Đặt hàng</a>
+                  </div>
+                </div>
+                <div>
+                  <p class="cls_font text-center">Thư pháp Trần Thế</p>
+                  <hr>
+                </div>                
+                <div class="product-row-info">        
+                  <div class="product-row-price pull-left"><br><span class="product-row-sale">350,000₫</span></div>
+                  <span class="product-row-counts pull-right"><i class="small">Còn</i>
+                  <br>
+                  <strong>1</strong></span>
+                  <div class="clearfix"></div>
+                </div>
+              </div>              
             </div>
-            <div class="col-sm-4">
-              <p class="cls_font">Thư pháp Trần Thế</p>
-              <img src="public/files/2.jpg" class="img-responsive" style="width:100%" alt="Image">
+
+            <div class="col-sm-4 div-sm4">
+              <div class="product-row">
+                <div class="product-row-img">
+                  <a href="/">
+                    <img class="product-row-thumbnail" src="public/files/2.jpg" style="width:100%" alt="khăn lụa kết hoa tay">
+                  </a>
+                  <div class="product-row-price-hover"><a href="/products/khan-lua-ket-hoa-tay-5">
+                    <div class="product-row-note pull-left">Đăng kí email để xem giá sỉ</div>
+                    </a><a href="/products/khan-lua-ket-hoa-tay-5" class="product-row-btnbuy pull-right">Đặt hàng</a>
+                  </div>
+                </div>
+                <div>
+                  <p class="cls_font text-center">Thư pháp Trần Thế</p>
+                  <hr>
+                </div>                
+                <div class="product-row-info">        
+                  <div class="product-row-price pull-left"><br><span class="product-row-sale">350,000₫</span></div>
+                  <span class="product-row-counts pull-right"><i class="small">Còn</i>
+                  <br>
+                  <strong>1</strong></span>
+                  <div class="clearfix"></div>
+                </div>
+              </div>              
             </div>
           </div>
         </div>
       </div>      
     </div>
   </div>
-
 </div>
 <br>
 <br>
-
+<div id="register-email">
+  <form accept-charset="UTF-8" action="/" class="contact-form" method="post">
+    <input name="form_type" type="hidden" value="customer">
+    <input name="utf8" type="hidden" value="✓">
+          
+      <div class="container main">
+        <div class="get_email">
+          <div id="intro-text" class="pull-left col-sm-7 col-xs-12 pull-left">Đăng ký để nhận thông tin tranh mới</div>
+          <div id="frame_sbemail" class="pull-left col-sm-4 col-xs-12 pull-right"> 
+            <div class="input-group input-group-sm">
+              <input type="text" class="form-control" name="contact[email]" id="your_email" placeholder="Nhập email của bạn">
+              <span class="input-group-btn">
+                <button name="bt_submitemail" id="bt_submitemail" class="btn btn-default" type="submit">Đăng ký</button>
+              </span>
+            </div>            
+          </div>
+          <div class="clr"></div>
+        </div>
+      </div>
+    </form>
+</div>
 <footer class="container-fluid text-center">
-  <p>Footer Text</p>
+
 </footer>
 <div id="myModal" class="modal">
   <span class="close cursor" onclick="closeModal()">&times;</span>
@@ -407,6 +801,7 @@ img.hover-shadow {
 </div>
 
 <script>
+  $('[data-toggle="tooltip"]').tooltip(); 
 function openModal() {
   document.getElementById('myModal').style.display = "block";
 }
