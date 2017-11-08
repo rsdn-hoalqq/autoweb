@@ -27,8 +27,8 @@ class getProductRequest extends FormRequest
             'cate_id' => 'required',
             'txtName' => 'required',
             'txtDescription' => 'required',
-            'txtContent' => 'required',
-            'image1' => 'image', 
+            // 'txtContent' => 'required',
+            'image1' => 'mimes:jpeg,png,gif', 
         ];
     }
 
@@ -37,8 +37,8 @@ class getProductRequest extends FormRequest
             'cate_id.required' => 'Bạn chưa chọn chuyên mục',
             'txtName.required' => 'Bạn chưa nhập tên sản phẩm',
             'txtDescription.required' => 'Bạn chưa nhập mô tả sản phẩm',
-            'txtContent.required' => 'Bạn chưa nhập chi tiết sản phẩm',
-            'image1.image' => 'Image không đúng định dạng',
+            // 'txtContent.required' => 'Bạn chưa nhập chi tiết sản phẩm',
+            'image1.mimes' => 'Image không đúng định dạng',
             // 'image.size' => 'Size quá lớn',
         ];
     }

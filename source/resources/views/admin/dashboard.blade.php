@@ -63,7 +63,7 @@
               </li>
               <li class="list-group-item">
                 <span class="glyphicon glyphicon-book" aria-hidden="true"></span> 
-                <a href="">QUẢN LÝ SẢN PHẨM</a>
+                <a href="{{ route('listProduct') }}">QUẢN LÝ SẢN PHẨM</a>
                 <a href="{{ route('addProduct') }}" class="btn btn-success clIcon" data-toggle="tooltip" title="Tạo mới sản phẩm!">
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>

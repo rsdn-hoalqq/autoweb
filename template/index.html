@@ -1,357 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Thư Pháp Trần Thế</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="public/css/bootstrap.min.css">
   <script src="public/js/jquery.min.js"></script>
   <script src="public/js/bootstrap.min.js"></script>
-  <style>
-  a:hover {
-    color: #333;
-    text-decoration: none!important;
-  }
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    /* Add a gray background color and some padding to the footer */
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-      height: 100px;
-    }
-    .cls_font{
-      font-size: 22px;
-      color: blue;
-    }
-    .clImages{
-      height: 90px;
-      width: 100%;
-    }
-    .imageSlide{
-      width: 100%;
-      height: 100%;
-    }
-    .clMaxHeight{
-      /*height: 400px;*/
-    }
-    body {
-  /*font-family: Verdana, sans-serif;*/
-  margin: 0;
-  /*font-family: 'Roboto Condensed', sans-serif !important;*/
-  /*background: gold;*/
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.row > .column {
-  padding: 0 8px;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-    .column {
-      float: left;
-      width: 25%;
-    }
-    /* The Modal (background) */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: brown;
-}
-
-/* Modal Content */
-.modal-content {
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  width: 90%;
-  /*max-width: 1200px;*/
-}
-.modelShow{
-  position: fixed;
-  z-index: 1;
-  padding-top: 20px;
-  left: 30%;
-  top: 0;
-  width: 800px;
-  height: 100%;
-  overflow: auto;
-  background-color: black;
-}
-/* The Close Button */
-.close {
-  /*z-index: 2;*/
-  color: white;
-  position: absolute;
-  top: 10px;
-  right: 25px;
-  font-size: 35px;
-  font-weight: bold;
-  opacity:1;
-}
-
-.close:hover,
-.close:focus {
-  color: #999;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.mySlides {
-  display: none;
-}
-
-.cursor {
-  cursor: pointer
-}
-
-/* Next & previous buttons */
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-img {
-  margin-bottom: -4px;
-}
-
-.caption-container {
-  text-align: center;
-  background-color: black;
-  padding: 2px 16px;
-  color: white;
-}
-
-.demo {
-  opacity: 0.6;
-}
-
-.active,
-.demo:hover {
-  opacity: 1;
-}
-
-img.hover-shadow {
-  transition: 0.3s
-}
-
-.hover-shadow:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
-}
-
-.headings{
-  font-size: 18px;
-  font-weight: bold;
-  color: blue !important;
-}
-  .header-logos{
-    background-image: url('public/files/headerImage.jpg');
-    height: 300px;
-  }
-  .header-logos h1, p{
-    color: gold;
-    font-family: cursive;
-    font-weight: bold !important;
-  }
-#mainmenu {
-    background: #a81821;
-    /*box-shadow: -1px 3px 5px #888;*/
-}
-.container {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
-li.actives {
-    background: #0655A6 !important;
-}
-#register-email {
-    background: #dedede;
-    clear: both;
-    margin-bottom: -13px;
-}
-#register-email .main {
-    padding: 8px 0;
-    background: url(bg-register.png) no-repeat scroll left center transparent;
-}
-#intro-text {
-    font-size: 16px;
-    padding-top: 3px;
-    margin-left: 70px;
-}
-.pull-left {
-    float: left !important;
-}
-form {
-    margin-bottom: 1em;
-}
-form {
-    display: block;
-    margin-top: 0em;
-}
-.text-color{
-  color: white !important;  
-  font-size: 16px;
-}
-.product-row {
-    background-color: #FFF;
-    /*margin-bottom: 30px;*/
-    border: 1px solid #FFF;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-}
-.product-row-img {
-    display: block;
-    overflow: hidden;
-    /* position: relative; */
-    width: 100%;
-    height: 470px;
-    background: #FFF;
-}
-.product-row-info {
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-.pull-right {
-    float: right !important;
-}
-.product-row-sale {
-    font-size: 20px;
-    color: #555555;
-    font-weight: 700;
-}
-.product-row-note {
-    font-size: 14px;
-    color: #FFF;
-    padding-top: 7px;
-    font-style: italic;
-}
-.product-row:hover {
-  border: 1px solid #F1DF8D;
-  box-shadow: none;
-}
-.product-row-thumbnail {
-  width: 100%;
-}
-.product-row-price-hover {
-    background: none repeat scroll 0 0 rgba(241, 223, 141, .8);
-    color: #fff!important;
-    font-size: 13px;
-    left: 0;
-    padding: 10px;
-    position: absolute;
-    transition: bottom 0.5s ease 0s;
-    width: 100%;
-    display: none;
-}
-.product-row:hover .product-row-price-hover {
-    bottom: 138px;
-    transition: bottom 0.5s ease 0s;
-    display: block;
-    width: 94%;
-    margin-left: 16px !important;
-}
-.product-row-btnbuy {
-  padding: 5px 12px;
-  background: #252525;
-  color: #FFF;
-  margin-top: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-}
-.product-row-btnbuy:hover {
-    background-color: #0655A6;
-    color: #FFF;
-}
-.div-sm4{
-  margin-bottom: 10px;
-  height: 610px;
-}
-.item-carts{
-  height: 70px;
-  width: 70px;
-  /*background: brown;*/
-  position: fixed;
-  top: 100px;
-  right: 10px;
-  /*text-align: center;*/
-  border-radius: 7px; 
-  z-index: 10;
-  /*background-image: url('public/files/cart.jpg');*/
-}
-.sty-a{
-  font-size: 16px;
-  font-weight: bold;
-}
-.cart{
-
-}
-</style>
+  <link rel="stylesheet" type="text/css" href="public/css/mystyle.css"></link>
 </head>
 <body>
-  <div class="item-carts">
-    <a href="" data-toggle="tooltip" title="Xem giỏ hàng"><img src="public/files/cart.jpg" style="width: 70px;border-radius: 40px;" alt="cart"></a> 
+<header class="header">
+  <div class="topbar">
+    <div class="container">
+      <div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 a-left">
+            <div class="list-inline f-left topbar-left">
+              <span class="icon-login">
+                <img src="public/files/icon_login.png" alt="icon login">
+              </span>
+              
+              <span class="li hidden-md hidden-sm hidden-xs"><a href="" data-toggle="modal" data-target="#dangky" title="Đăng ký">Đăng ký</a></span>
+              <span class="li hidden-lg"><a href="/account/register" title="Đăng ký">Đăng ký</a></span>
+              hoặc
+              <span class="li hidden-md hidden-sm hidden-xs"><a href="" data-toggle="modal" data-target="#dangnhap" onclick="dangnhap();return false;" title="Đăng nhập">Đăng nhập</a></span>
+              <span class="li hidden-lg"><a href="/account/login" title="Đăng nhập">Đăng nhập</a></span>
+                
+            </div>
+          </div>
+          <div class="col-sm-8 col-md-8 col-lg-8 a-right hidden-xs">
+            <div class="topbar-right f-right">              
+              <nav>
+                <ul id="nav" class="nav">
+                  
+                  <li class="nav-item active"><a class="nav-link" href="/">Trang chủ</a></li>
+                  
+                  <li class="nav-item "><a class="nav-link" href="/gioi-thieu">Giới thiệu</a></li>
+                  
+                  <li class="nav-item "><a class="nav-link" href="/collections/all">Sản phẩm</a></li>
+                  
+                  <li class="nav-item "><a class="nav-link" href="/tin-tuc">Tin tức</a></li>
+                  
+                  <li class="nav-item "><a class="nav-link" href="/lien-he">Liên hệ</a></li>                  
+                </ul> 
+              </nav>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-<div class="jumbotron">  
-  <div class="container text-center header-logos">
-    <h1>Thư Họa Phong Trần</h1>      
-    <p>Thăng Hoa Nét Viết</p>
+  <div class="container">
+    <!-- <div class="menu-bar hidden-md hidden-lg hidden-sm hidden-xs">
+      <img src="public/files/menu-bar.png" alt="menu bar">
+    </div> -->
+    <div class="header-main">
+      <div class="row">
+        <div class="nav-mobile-button hidden-md hidden-lg">
+          <!-- <a href="#nav-mobile"><img src="//bizweb.dktcdn.net/100/244/306/themes/581791/assets/iconmenu.png?1507878340169" alt="menu bar"></a> -->
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 head_logo">
+          <div class="logo">
+
+            
+            <a href="/" class="logo-wrapper ">          
+              <img src="public/files/logo.png" alt="logo ">         
+            </a>
+                        
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 hidden-xs hidden-sm">
+          <div class="service_header">
+            <div class="section-policy">
+              <div class="policy-content ">
+                <div class="row">
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="policy">
+                      <div class="policy-icon">
+                        <img src="public/files/service_1.png" alt="Miễn phí vận chuyển trên toàn quốc">
+                      </div>
+                      <div class="policy-text">
+                        <h4>Miễn phí vận chuyển trên toàn quốc</h4>
+                      </div>
+                    </div><!-- /.policy -->
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="policy">
+                      <div class="policy-icon">
+                        <img src="public/files/service_2.png" alt="Đổi trả hàng trong 30 ngày đầu">
+                      </div>
+                      <div class="policy-text">
+                        <h4>Đổi trả hàng trong 30 ngày đầu</h4>
+                      </div>
+                    </div><!-- /.policy -->
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="policy">
+                      <div class="policy-icon">
+                        <img src="public/files/service_3.png" alt="Hỗ trợ khách hàng:">
+                      </div>
+                      <div class="policy-text">
+                        <h4>Hỗ trợ khách hàng:</h4>
+                        <a href="tel:19006750">
+                        19006750</a>
+                      </div>
+                    </div><!-- /.policy -->
+                  </div>
+                </div><!-- /.row -->
+              </div><!-- /.policy-wrapper -->
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-1 style-b-header1 ">
+
+          <div class="wishlist_header">
+            
+            <a class="iWishView" href="javascript:;" title="Danh sách yêu thích" data-customer-id="0">
+              <img alt="Wishlist" src="public/files/icon_wishlist.png">
+              <span class="hidden-xs">Yêu thích</span></a>
+            
+          </div>    
+        </div>
+        <div class="col-lg-1 style-b-header2">
+
+          <div class="top-cart-contain f-right">
+            <div class="mini-cart text-xs-center">
+              <div class="heading-cart">
+                <a class="bg_cart" href="/cart" title="Giỏ hàng">
+                  <img alt="Giỏ hàng" src="public/files/icon_cart.png">
+                  <span class="count_item count_item_pr">0</span>
+                  <div class="under-cart">
+                    <span class="text-giohang hidden-xs">Giỏ hàng</span>
+                  </div>                  
+                </a>
+              </div>  
+              <div class="top-cart-content">          
+                <ul id="cart-sidebar" class="mini-products-list count_li"><div class="no-item"><p>0.</p></div></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</header>
+
 <nav class="navbar navbar-inverse" id="mainmenu">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -379,12 +173,12 @@ form {
   </div>
 </nav>
   
-<div class="container-fluid bg-3">    
-  <div class="row"> 
+<div class="container-fluid bg-3">   
+  <div class="row">     
     <br>
     <div class="col-sm-2 sidenav hidden-xs">
       <div class="panel panel-default">
-        <div class="panel-heading headings">DANH SÁCH PHÂN LOẠI</div>
+        <div class="panel-heading headings">DANH SÁCH SẢN PHẨM</div>
           <ul class="list-group">
             <li class="list-group-item"><a href="#" class="sty-a">Tranh Thủy mặc</a></li>
             <li class="list-group-item"><a href="" class="sty-a">Tranh Sơn Thủy</a></li>
@@ -402,8 +196,38 @@ form {
       </div>
     </div>
     <div class="col-sm-10">
+
+      <div class="slides-wrapper">
+        <div class="slides">
+          <div class="mySlidesHeader">
+            <div class="numbertextHeader">1 / 4</div>
+            <img src="public/files/slide3.jpg" style="width:100%"> 
+          </div>
+
+          <div class="mySlidesHeader">
+            <div class="numbertextHeader">2 / 4</div>
+            <img src="public/files/slide2.jpg" style="width:100%">
+          </div>           
+          <a class="prevHeader" onclick="plusSlides(-1,'true')">&#10094;</a>
+          <a class="nextHeader" onclick="plusSlides(1,'true')">&#10095;</a>             
+        </div>
+
+        <div class="item-slides">
+          <div class="img-row">
+            <p class="space"></p>
+            <img class="demoHeader cursor" src="public/files/slide3.jpg" style="width:100%" onclick="currentSlide(1,'true')" alt="Nature and sunrise">
+            <img class="demoHeader cursor" src="public/files/slide2.jpg" style="width:100%" onclick="currentSlide(2,'true')" alt="Trolltunga, Norway">
+            <p class="space"></p>
+          </div>
+          <!-- <div class="img-row">
+            <img class="demoHeader cursor" src="public/files/slide2.jpg" style="width:100%" onclick="currentSlide(2,'true')" alt="Trolltunga, Norway">
+          </div> -->
+        </div>
+        <!-- <div class="clearfix"></div> -->
+      </div>
+
       <div class="panel panel-default">
-        <div class="panel-heading"><a href="/" class="headings">VIDEO VẼ NGHỆ THUẬT</a></div>
+        <div class="panel-heading heading"><a href="/" class="headings" data-toggle="tooltip" title="Click để xem nhều hơn">VIDEO VẼ NGHỆ THUẬT</a></div>
         <div class="panel-body">
           <div class="row text-center">        
             <div class="col-sm-4 clMaxHeight">          
@@ -486,7 +310,7 @@ form {
         </div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-heading"><a href="/" class="headings">TRANH MỚI NHẤT</a></div>
+        <div class="panel-heading heading"><a href="/" class="headings">TRANH MỚI NHẤT</a></div>
         <div class="panel-body">
           <div class="row">
             <div class="col-sm-4 div-sm4">
@@ -642,7 +466,7 @@ form {
         </div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-heading"><a href="/" class="headings">TRANH XEM NHIỀU NHẤT</a></div>
+        <div class="panel-heading heading"><a href="/" class="headings">TRANH XEM NHIỀU NHẤT</a></div>
         <div class="panel-body">
           <div class="row">
             <div class="col-sm-4 div-sm4">
@@ -811,21 +635,30 @@ function closeModal() {
 }
 
 var slideIndex = 1;
-showSlides(slideIndex);
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
+showSlides(slideIndex);
+showSlidesHeader(slideIndex);
+
+function plusSlides(n,header = '') {
+  if(header == ''){
+    showSlides(slideIndex += n);
+  }else{
+    showSlidesHeader(slideIndex += n);
+  }  
 }
 
-function currentSlide(n) {
-  showSlides(slideIndex = n);
+function currentSlide(n,header = '') {
+  if(header == ''){
+    showSlides(slideIndex = n);
+  }else{
+    showSlidesHeader(slideIndex = n);
+  }  
 }
 
 function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
   var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
   if (n > slides.length) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
@@ -836,7 +669,21 @@ function showSlides(n) {
   }
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+function showSlidesHeader(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlidesHeader");
+  var dots = document.getElementsByClassName("demoHeader");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
 }
 </script>
 </body>

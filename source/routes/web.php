@@ -53,8 +53,11 @@ Route::domain('autoweb.dev')->group(function () {
 
 
 		Route::prefix('product')->group(function(){
+			Route::get('index',['as'=>'listProduct','uses'=>'ProductController@index']);
 			Route::get('add',['as'=>'addProduct','uses'=>'ProductController@getAdd']);
 			Route::post('add',['as'=>'postProduct','uses'=>'ProductController@postAdd']);
+			Route::get('edit/{id}','ProductController@getEdit');
+			Route::post('edit/{id}',['as'=>'editProduct','uses'=>'ProductController@postEdit']);
 		});
 	});
 });
