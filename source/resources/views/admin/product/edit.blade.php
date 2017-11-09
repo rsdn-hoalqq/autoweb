@@ -13,7 +13,7 @@
 		    </div>
 		@endif
 		<div class="panel-body">
-			@include('admin.product.form',['btnAction'=>'Update','data'=>$data,'cates'=>$cates])
+			@include('admin.product.form',['btnAction'=>'Update','data'=>$data,'cates'=>$cates, 'images'=>$images])
 		</div>
 	</div>
 @endsection

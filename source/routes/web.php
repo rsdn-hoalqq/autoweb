@@ -57,8 +57,11 @@ Route::domain('autoweb.dev')->group(function () {
 			Route::get('add',['as'=>'addProduct','uses'=>'ProductController@getAdd']);
 			Route::post('add',['as'=>'postProduct','uses'=>'ProductController@postAdd']);
 			Route::get('edit/{id}','ProductController@getEdit');
+			Route::get('view/{id}',['as'=>'viewEdit','uses'=>'ProductController@viewProduct']);
 			Route::post('edit/{id}',['as'=>'editProduct','uses'=>'ProductController@postEdit']);
+			Route::post('delete/{id}',['as'=>'deleteProduct','uses'=>'ProductController@deleteImage']);
 		});
+		
 	});
 });
 

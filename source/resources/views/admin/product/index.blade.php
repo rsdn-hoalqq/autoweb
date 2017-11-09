@@ -24,7 +24,7 @@
 				      	<th scope="col">Mô tả sản phẩm</th>
 				      	<th scope="col">Chuyên mục</th>
 				      	<th scope="col">Trạng thái</th>
-				      	<th>Actions</th>
+				      	<th class="text-center">Actions</th>
 				    </tr>
 				    <?php $stt = 0;?>
 				    @foreach($products as $product)
@@ -40,9 +40,10 @@
 				    			{!! $nameCate->name !!}
 				    		</td>
 				    		<td>{!! $product['status'] !!}</td>
-				    		<td>
+				    		<td class="text-center">
+				    			<a href="{{'view/'.$product['id']}}" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></a>
 				    			<a href="{{'edit/'.$product['id']}}" class="btn btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></a>
-				    			<a href="{{'delete/'.$product['id']}}" class="btn btn-success" onclick="return confirm('Are you sure you want to delete this item?');"><img src="{{ asset('files/icon/delete.png')}}" alt="delete" width="20"></a>
+				    			<a href="{{'delete/'.$product['id']}}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 				    		</td>
 				    	</tr>
 				    @endforeach

@@ -3,10 +3,47 @@
   font-weight: bold;
   color: blue !important;
 }
+.divImage{
+	width: 100%;
+	margin-top: 20px;
+}
+.showImage{
+	width: 30%;
+	height: 165px;
+	/*background-color: green;*/
+}
 .clIcon{
   float: right;
   margin-top: -7px;
 }
 .clsImage{
 	margin: 5px 0px;
+}
+.clsImageAdmin{
+	width: 100%;
+}
+.divImages{
+	height: 120px;
+	margin: 3px 0px;
+}
+.idRemove{
+	cursor: pointer;
+    position: relative;
+    top: -76px;
+    right: -116px;
+}
+.titleTable{
+	width: 120px
+}
+.block-images{
+	height: 350px;
+    margin-bottom: 10px;
+}
+.item-images{
+	/*margin: 3px;*/
+	height: 100%;
+}
+.iconDelete{
+	cursor: pointer;
+	width: 5%;
 }
