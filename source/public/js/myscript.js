@@ -1,5 +1,5 @@
 // uses ckeditor
-CKEDITOR.replace( 'ckeditor' ); 
+// CKEDITOR.replace( 'ckeditor' ); 
 
 function openModal() {
   document.getElementById('myModal').style.display = "block";

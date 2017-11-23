@@ -11,7 +11,6 @@
 			</div>
 		</div>
 	@endif
-	
 	<div class="panel panel-default">
       <div class="panel-heading headings">DANH SÁCH SẢN PHẨM</div>      
       <div class="panel-body">
@@ -36,8 +35,8 @@
 				    		<td>
 				    			<?php 
 				    				$nameCate = DB::table('categories')->select('name')->where('id',$product['cate_id'])->first();
+				    				echo empty($nameCate) ? '' : $nameCate->name;
 				    			?>
-				    			{!! $nameCate->name !!}
 				    		</td>
 				    		<td>{!! $product['status'] !!}</td>
 				    		<td class="text-center">

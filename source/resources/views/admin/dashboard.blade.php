@@ -24,7 +24,7 @@
   <nav class="navbar navbar-inverse">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="{{ route('admin')}}">Admin Manager</a>
+        <a class="navbar-brand" href="/">Visit website</a>
       </div>
       <ul class="nav navbar-nav navbar-right">
       @if (Auth::guest())
@@ -50,14 +50,14 @@
               <li class="list-group-item">
                 <span class="glyphicon glyphicon-book" aria-hidden="true"></span> 
                 <a href="{{ route('categoryList')}}">QUẢN LÝ MENU HIỂN THỊ</a>
-                <a href="{{ route('addCate') }}" class="btn btn-success clIcon" data-toggle="tooltip" title="Tạo mới chuên mục!">
+                <a href="{{ route('addCate') }}" class="btn btn-success clIcon" data-toggle="tooltip" title="Tạo mới chuyên mục!">
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
               </li>
               <li class="list-group-item">
                 <span class="glyphicon glyphicon-book" aria-hidden="true"></span> 
-                <a href="">QUẢN LÝ BÀI HỌC</a>
-                <a href="{{ route('addCate') }}" class="btn btn-success clIcon" data-toggle="tooltip" title="Tạo mới Khóa học!">
+                <a href="{{ route('listLession') }}">QUẢN LÝ BÀI HỌC</a>
+                <a href="{{ route('addLession') }}" class="btn btn-success clIcon" data-toggle="tooltip" title="Tạo mới Khóa học!">
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
               </li>

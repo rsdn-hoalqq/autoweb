@@ -44,4 +44,16 @@ class CategoriesController extends Controller
     	$cate = Categories::where('id',$id)->delete();
     	return redirect('admin/chuyen-muc/index')->with(['alert'=>'success','message_flag'=>'Đã xóa chuyên mục thành công']);
     }
+
+    public function testAjax(Request $request){
+        // return $request->name;
+        $response['name'] = $request->name;
+        return \Response::json($response);
+    }
+    public function postAjax(Request $request){
+        // return $request->name;
+        // $response['name'] = $request->name;
+        return \Response::json($request->all());
+    }
+    
 }

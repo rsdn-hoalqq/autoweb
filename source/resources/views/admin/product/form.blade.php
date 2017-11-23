@@ -1,4 +1,3 @@
-
 @if(isset($data))
   <?php $selected = $data['cate_id'];?>
   <form action="{!! route('editProduct',$data['id'])!!}" method="post" enctype="multipart/form-data">
@@ -51,24 +50,33 @@
       <div class="form-group">
         <label for="text">Sản phẩm thuộc loại nào?</label><br>
         <label class="radio-inline">
-          <input type="radio" name="type" checked="true" value="0">Image
+          <input type="radio" name="type" checked="true" value="0" onClick="chooseType('0')">Image
         </label>
         <label class="radio-inline">
-          <input type="radio" name="type" value="1">Video
+          <input type="radio" name="type" value="1" onClick="chooseType('1')">Video
         </label>&nbsp;&nbsp; 
       </div>
-      <div class="form-group">
-        <div class="row">
-          @if(isset($images))            
+      <div class="form-group" id="grVideo">
+        <input type="text" class="form-control" name="path" id="pathId" onchange="getAttrPath('pathId')" placeholder="Path video form youtube!">
+        <input type="text" class="form-control" name="nameVideo" id="" placeholder="Name Video">
+      </div>
+      <div class="form-group">        
+          @if(isset($images))     
+            <div class="row" style="margin-left: 0px">       
             @foreach($images as $image)
-              <div class="col-sm-4 divImages img-thumbnail">
+              <div class="col-sm-6 divImages img-thumbnail">
+                <div class="titleImage">
+                  <img src="{{asset('files/icon/delete.jpg')}}" alt="icon delete" class="img-responsive iconDeletes" data-toggle="tooltip" title="Xóa hình ảnh này!" onclick="deleteImage({!! $image['id']!!})">
+                </div>
                 <img src="{{asset('/files/product/'.$image['path'])}}" alt="{{$image['name']}}" class="img-responsive clsImageAdmin">
               </div>
-            @endforeach   
+            @endforeach  
+            </div> 
           @endif
-        </div>
+        
         <div class="divImage" id="divImage">
-          <input type="file" name="image[]" class="clsImage" onchange="getMessage()">
+          <input type="file" name="image[]" class="clsImage">
+          <input type="text" class="form-control" name="nameImage[]" id="" placeholder="Name Image">
         </div>
         <span class="glyphicon glyphicon-plus btn btn-success" aria-hidden="true" data-toggle="tooltip" title="Thêm mới hình ảnh!" id="addImage"></span>
       </div>

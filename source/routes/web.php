@@ -61,6 +61,14 @@ Route::domain('autoweb.dev')->group(function () {
 			Route::post('edit/{id}',['as'=>'editProduct','uses'=>'ProductController@postEdit']);
 			Route::post('delete/{id}',['as'=>'deleteProduct','uses'=>'ProductController@deleteImage']);
 		});
+		Route::prefix('lession')->group(function(){
+			Route::get('index',['as'=>'listLession','uses'=>'LessionController@index']);
+			Route::get('add',['as'=>'addLession','uses'=>'LessionController@add']);
+		});
+
+		// test ajax
+		Route::get('/test-ajax','CategoriesController@testAjax');
+		Route::post('/post-ajax','CategoriesController@postAjax');
 		
 	});
 });

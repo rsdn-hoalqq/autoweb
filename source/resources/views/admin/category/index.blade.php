@@ -11,7 +11,7 @@
 			</div>
 		</div>
 	@endif
-	
+	<input type="button" value="test Ajax" id="testAjax" onclick="testAjax('testAjax')">
 	<div class="panel panel-default">
       <div class="panel-heading headings">QUẢN LÝ MENU HIỂN THỊ</div>      
       <div class="panel-body">
@@ -47,3 +47,34 @@
       </div>
     </div>	
 @endsection
+<script>
+	function testAjax(id){
+		var path = "{{asset('/')}}";
+		var url = path+"admin/test-ajax";
+		var urlpost = path+"admin/post-ajax";
+
+		var name = 'testName';
+		var email = 'testEmail';
+		var token = "{!! csrf_token()!!}";
+		
+		// $.ajax({
+		//   url: url,
+		//   method: "GET",
+		//   cache: false,
+		//   data: { name : name },
+		//   success: function(data) {
+		// 	console.log(data['name']);
+		//   }
+		// });
+
+		$.ajax({
+		  url: urlpost,
+		  method: "POST",
+		  cache: false,
+		  data: { _token:token, name : name, email:email },
+		  success: function(data) {
+			console.log(data);
+		  }
+		});
+	}
+</script>

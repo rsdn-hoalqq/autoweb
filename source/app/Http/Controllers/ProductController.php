@@ -9,6 +9,7 @@ use App\Categories;
 use App\Product;
 use App\User;
 use App\Images;
+use App\Videos;
 use DB;
 use Session;
 class ProductController extends Controller
@@ -41,54 +42,60 @@ class ProductController extends Controller
     }
 
     public function postAdd(getProductRequest $request){
+        // dd($request->all());
     	$prd 	= new Product;
-    	$img 	= new Images;
-        
-    	// test transection
-  		DB::beginTransaction();
-
-		try {
-
-            // $prd->name = $request->txtName;
-            // $prd->description = $request->txtDescription;
-            // $prd->price = $request->txtPrice;
-            // $prd->cate_id = $request->cate_id;
-            // $prd->status = $request->status;
-            // $id = $prd->save();
-            
-            // $prd->type = $request->type;
-            // $prd->content = $request->txtContent;
-            
-
-            // dd($prd->id);
-            // print_r($prd);
-            // $id = $prd->id;
-            // dd($id);
-		    // $img = new Images;
-		    // $img = new Categories;
-	    	// $img->name = $request->txtName;
-	    	// $img->product_id = $request->cate_id;
-	    	// $img->published = 1;
-    		$files = $request->file();
-            if(isset($files)){
-                dd($files);
-            } 
-    		// $file = $request->file('image1');
-	    	// $destinationPath = public_path().'/files/product/';
-	    	// $file->move($destinationPath,$file->getClientOriginalName());
-	    	// $file->rename($destinationPath,$file->getClientOriginalName());
-
-    	// foreach ($files as $key => $file) {
-    	// 	echo $file->getClientOriginalName();
-    	// }
-		    DB::commit();// all good
-		} catch (\Exception $e) {
-            dd($e);
-		    DB::rollback();// something went wrong
-		}        
+    	$destinationPath = public_path().'/files/product/';
+        // test transection
+        DB::beginTransaction();
+        try {            
+            $prd->name = $request->txtName;
+            $prd->description = $request->txtDescription;
+            $prd->price = $request->txtPrice;
+            $prd->cate_id = $request->cate_id;
+            $prd->status = $request->status;
+            $prd->save();
+            $id = $prd->id;
+            $files = $request->file('image');
+            // handle save image
+            if(!empty($files)){
+                foreach ($files as $key => $file) {
+                    $img    = new Images;
+                    if(empty($request->nameImage[$key])){
+                        $imageAvatar = $file->getClientOriginalName();
+                    }else{
+                        $imageAvatar = $request->nameImage[$key];
+                    }
+                    
+                    $file->move($destinationPath,$imageAvatar);
+                    // save image
+                    $img->path          = $imageAvatar;
+                    $img->product_id    = $id;
+                    $img->published     = 1;
+                    $img->name          = $request->nameImage[$key];
+                    $img->save();
+                }
+            }
+            // handle save video
+            if(!empty($request->path)){
+                $video = new Videos();
+                $video->product_id = $id;
+                $video->path = $request->path;
+                $video->published = 0;
+                $video->name = empty($request->nameVideo) ? $request->txtName : $request->nameVideo;
+                $video->save();
+            }           
+             
+            DB::commit();// all good
+            $message = "Update sản phẩm thành công";
+            $alert = 'success';
+        } catch (\Exception $errors) {
+            DB::rollback();// something went wrong
+            $message = "Update sản phẩm không thành công";
+            $alert = 'danger';
+        }        
     	// end test
-    	// $cates = Categories::select('id','name','parent_id')->orderBy('order_by')->get()->toArray();
-    	// return view('admin/product/add',compact('cates'));
+    	$cates = Categories::select('id','name','parent_id')->orderBy('order_by')->get()->toArray();
+    	return view('admin/product/add',compact('cates'));
     }
     public function getEdit($id){
         $cates = Categories::select('id','name','parent_id')->orderBy('order_by')->get()->toArray();
@@ -99,26 +106,39 @@ class ProductController extends Controller
 
     public function postEdit(getProductRequest $request, $id){
         $destinationPath = public_path().'/files/product/';
-        $imageAvatar = '';
         // test transection
         DB::beginTransaction();
-
         try {            
             $files = $request->file('image');
-            // dd($files);
-            if(isset($files)){
+            // handle save image
+            if(!empty($files)){
                 foreach ($files as $key => $file) {
                     $img    = new Images;
-                    $imageAvatar = $file->getClientOriginalName();
+                    if(empty($request->nameImage[$key])){
+                        $imageAvatar = $file->getClientOriginalName();
+                    }else{
+                        $imageAvatar = $request->nameImage[$key];
+                    }
+                    
                     $file->move($destinationPath,$imageAvatar);
                     // save image
                     $img->path          = $imageAvatar;
                     $img->product_id    = $id;
                     $img->published     = 1;
-                    $img->name          = $request->txtName;
+                    $img->name          = $request->nameImage[$key];
                     $img->save();
                 }
             }
+            // handle save video
+            if(!empty($request->path)){
+                $video = new Videos();
+                $video->product_id = $id;
+                $video->path = $request->path;
+                $video->published = 0;
+                $video->name = empty($request->nameVideo) ? $request->txtName : $request->nameVideo;
+                $video->save();
+            }
+            
             $prd = Product::find($id);
             $prd->name = $request->txtName;
             $prd->description = $request->txtDescription;
