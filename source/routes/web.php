@@ -12,41 +12,40 @@
 */
 
 Route::get('/', function () {
-    return view('admin');
-})->name('trangchu');
-Route::get('create-table','CreateDatabaseController@create');
-Route::get('chuyen-muc/add',function(){
-	return view('form/category/add');
+    return view('welcome');
 });
-// Route::post('chuyen-muc/add',['as'=>'addCategory','uses'=>'CategoriesController@add']);
+Auth::routes();
 
-Route::get('auth/login',['as'=>'getLogin','uses'=>'Auth\AuthController@getLogin']);
-Route::post('auth/login',['as'=>'postLogin','uses'=>'Auth\AuthController@postLogin']);
+Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::get('auth/register',['as'=>'getRegister','uses'=>'Auth\AuthController@getRegister']);
-// Route::post('auth/register',['as'=>'postRegister','uses'=>'Auth\AuthController@postRegister']);
-Route::get('auth/logout',function(){
-	Auth::logout();
-	return redirect('/');
-});
-Route::prefix('admin')->middleware('checkUser')->group(function () {
+Route::prefix('admin')->middleware('auth')->group(function(){
+	Route::get('/', function () {return view('layouts/admin');})->name('admin');
+
 	Route::prefix('chuyen-muc')->group(function () {
-		Route::get('index','CategoriesController@index');
+		Route::get('index','CategoriesController@index')->name('categoryList');
 
-		Route::get('add',function(){ return view('admin/category/add'); });
+		Route::get('add',function(){ 			
+			$cates = App\Category::select('id','name','parent_id')->orderBy('order_by')->get()->toArray();
+			return view('admin/category/add',compact('cates')); 
+		})->name('addCate');
+
 		Route::post('add',['as'=>'addCategory','uses'=>'CategoriesController@add']);
 
 		Route::get('edit/{id}','CategoriesController@getEdit');
 		Route::post('edit/{id}',['as'=>'postEdit','uses'=>'CategoriesController@postEdit']);
 
 		Route::get('delete/{id}','CategoriesController@delete');
-		// Route::get('/edit/{$id}',function(){
-	 //    	// url: admin/chuyen-muc/add
-		// 	return view('form/category/add');
-		// });
-		// Route::get('/delete/{$id}',function(){
-	 //    	// url: admin/chuyen-muc/add
-		// 	return view('form/category/add');
-		// });
+		Route::post('delete/{id}',['as'=>'deleteProduct','uses'=>'Post@deleteImage']);
+	});
+
+
+	Route::prefix('post')->group(function(){
+		Route::get('index',['as'=>'listProduct','uses'=>'PostController@index']);
+		Route::get('add',['as'=>'addProduct','uses'=>'PostController@getAdd']);
+		Route::post('add',['as'=>'postProduct','uses'=>'PostController@postAdd']);
+		Route::get('edit/{id}','PostController@getEdit');
+		Route::get('view/{id}',['as'=>'viewEdit','uses'=>'PostController@viewProduct']);
+		Route::post('edit/{id}',['as'=>'editProduct','uses'=>'PostController@postEdit']);
+		Route::post('delete/{id}',['as'=>'deleteProduct','uses'=>'PostController@deleteImage']);
 	});
 });

@@ -1,17 +1,11 @@
-@extends('admin')
+@extends('layouts.admin')
 
-@section('content')
-@if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-<h3>Chỉnh sữa chuyên mục</h3>
-<hr/>
-    @include('admin.category.form',['btnAction'=>'Update'])
-
+@section('content')   
+	<div class="panel panel-default">
+		<div class="panel-heading headings">FORM CHỈNH SỮA CHUYÊN MỤC</div>
+		@include('admin.common.error')
+		<div class="panel-body">
+			@include('admin.category.form',['btnAction'=>'Update','data'=>$data,'cates'=>$cates])
+		</div>
+	</div>
 @endsection
