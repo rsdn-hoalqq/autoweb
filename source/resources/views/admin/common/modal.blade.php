@@ -23,7 +23,7 @@
       </div>
       <div class="col-sm-2">
         <button type="button" class="btn btn-secondary btnModal" data-dismiss="modal" onClick="closed()">Hủy</button>
-        <button type="button" class="btn btn-primary btnModal" onClick="cropperImage('image')">Sữa ảnh</button>
+        <button type="button" class="btn btn-primary btnModal" onClick="cropperImage('image')">Cắt ảnh</button>
       </div>
     </div>
   </div>

@@ -159,6 +159,8 @@ class PostController extends Controller
     }
 
     public function upload(Request $request){
-        dd($request->all());
+        $data = $request->file('croppedImage');
+        $files = $_FILES['croppedImage'];
+        return \Response::json($files);
     }
 }

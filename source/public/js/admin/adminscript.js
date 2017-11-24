@@ -49,16 +49,17 @@ function doCropperImage(src){
 	$('#image').cropper({
 		minContainerWidth: 900,
 		minContainerHeight:700,
-		crop: function(e) {
-			$('#withId').val(e.width);
-		    $('#heightId').val(e.height);
-		}
+		// crop: function(e) {
+		// 	$('#withId').val(e.width);
+		//     $('#heightId').val(e.height);
+		// }
 	});
 	$('#myModal').css('display','block');
 	// $('.cropper-container').css('width','100%');
 }
 function closed(){
 	$('#myModal').css('display','none');
+	$('#image').cropper("reset");
 }
 window.onclick = function(event) {
 	var modal = document.getElementById('myModal');
@@ -68,22 +69,24 @@ window.onclick = function(event) {
 }
 // handle save image
 function cropperImage(id){
+	var nameImage = $('#image').attr("alt");
+	alert(nameImage);
 	$('#'+id).cropper('getCroppedCanvas').toBlob(function (blob) {
-	  var formData = new FormData();
-	  var url = "{{!! route('upload') !!}}";
-	  alert(url);
-	  formData.append('croppedImage', blob);
-	  // $.ajax('/path/to/upload', {
-	  //   method: "POST",
-	  //   data: formData,
-	  //   processData: false,
-	  //   contentType: false,
-	  //   success: function () {
-	  //     console.log('Upload success');
-	  //   },
-	  //   error: function () {
-	  //     console.log('Upload error');
-	  //   }
-	  // });
+		var formData = new FormData();
+		// set url		
+		var urlpost = baseUrl+"admin/upload";
+	  	formData.append('croppedImage', blob);
+	  	formData.append('_token', token);
+		$.ajax({
+			url: urlpost,
+			method: "POST",
+			// cache: false,
+			data: formData,
+			processData: false,
+	    	contentType: false,
+		  	success: function(data) {
+				console.log(data);
+		 	 }
+		});
 	});
 }

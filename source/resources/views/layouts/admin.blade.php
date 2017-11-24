@@ -11,6 +11,7 @@
   <script type="text/javascript" src="{{ asset('/js/templateEditor/ckeditor/ckeditor.js') }}"></script>
   <script type="text/javascript">
     var baseUrl = "{{ asset('/')}}";
+    var token = "{!! csrf_token()!!}";
   </script>
   <script type="text/javascript" src="{{ asset('/js/jquery.min.js') }}"></script>
   {{-- <script type="text/javascript" src="{{ asset('/js/admin/jquery-3.2.1.slim.min.js') }}"></script> --}}

@@ -54,7 +54,7 @@
 	<div class="panel-body">
 		<div class="row" id="album-artwork">
 			@if(!empty($images))
-			@foreach($images as $image)
+			@foreach($images as $key => $image)
 				<div class="col-sm-4 block-images">
 					<div class="img-thumbnail item-images">
 						<div class="titleImage">
@@ -65,7 +65,7 @@
 									<img src="{{asset('files/icon/delete.jpg')}}" alt="icon delete" class="img-responsive iconDelete" data-toggle="tooltip" title="Xóa hình ảnh này!" onclick="deleteImage({!! $image['id']!!})">
 							</form>
 						</div>
-						<img src="{{asset('files/product/'.$image['path'])}}" alt="" class="img-responsive widthImage cursor" data-toggle="modal" data-target="#exampleModal" onClick="doCropperImage('{{asset('files/product/'.$image['path'])}}')">
+						<img src="{{asset('files/product/'.$image['path'])}}" alt="{{$image['path']}}" class="img-responsive widthImage cursor" data-toggle="modal" data-target="#exampleModal" onClick="doCropperImage('{{asset('files/product/'.$image['path'])}}')">
 					</div>					
 				</div>
 		    @endforeach
