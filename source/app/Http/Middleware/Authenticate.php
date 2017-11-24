@@ -32,6 +32,7 @@ class Authenticate {
 	 */
 	public function handle($request, Closure $next)
 	{
+		echo $request->user();
 		if ($this->auth->guest())
 		{
 			if ($request->ajax())
