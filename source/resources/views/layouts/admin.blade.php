@@ -12,6 +12,8 @@
   <script type="text/javascript">
     var baseUrl = "{{ asset('/')}}";
   </script>
+  <script type="text/javascript" src="{{ asset('/js/jquery.min.js') }}"></script>
+  {{-- <script type="text/javascript" src="{{ asset('/js/admin/jquery-3.2.1.slim.min.js') }}"></script> --}}
   <!-- Fonts -->
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -91,8 +93,7 @@
     </div>
   </div>
 
-  <!-- Scripts -->
-  <script type="text/javascript" src="{{ asset('/js/jquery.min.js') }}"></script>
+  <!-- Scripts -->  
   <script type="text/javascript" src="{{ asset('/js/bootstrap.min.js') }}"></script>
   <script type="text/javascript" src="{{ asset('/js/myscript.js') }}"></script>
   <script type="text/javascript" src="{{ asset('/js/admin/adminscript.js') }}"></script>

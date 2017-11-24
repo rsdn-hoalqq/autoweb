@@ -43,8 +43,47 @@ function getAttrPath(id){
 	}	
 	
 }
-// $('#myFrame').attr('src','https://drive.google.com/file/d/1_QEs3zAbGrXXQwuTO9X4Nci_ssvBCuwu/preview');
-// $('#myFrame').css('width','800');
-// $('#myFrame').find('.drive-viewer-toolstrip').css('display','none');
-// $('.drive-viewer-toolstrip').remove();
-// $('.drive-viewer-toolstrip').remove();
+
+function doCropperImage(src){
+	$('#image').attr('src',src);
+	$('#image').cropper({
+		minContainerWidth: 900,
+		minContainerHeight:700,
+		crop: function(e) {
+			$('#withId').val(e.width);
+		    $('#heightId').val(e.height);
+		}
+	});
+	$('#myModal').css('display','block');
+	// $('.cropper-container').css('width','100%');
+}
+function closed(){
+	$('#myModal').css('display','none');
+}
+window.onclick = function(event) {
+	var modal = document.getElementById('myModal');
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+// handle save image
+function cropperImage(id){
+	$('#'+id).cropper('getCroppedCanvas').toBlob(function (blob) {
+	  var formData = new FormData();
+	  var url = "{{!! route('upload') !!}}";
+	  alert(url);
+	  formData.append('croppedImage', blob);
+	  // $.ajax('/path/to/upload', {
+	  //   method: "POST",
+	  //   data: formData,
+	  //   processData: false,
+	  //   contentType: false,
+	  //   success: function () {
+	  //     console.log('Upload success');
+	  //   },
+	  //   error: function () {
+	  //     console.log('Upload error');
+	  //   }
+	  // });
+	});
+}

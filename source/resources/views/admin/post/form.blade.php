@@ -12,7 +12,7 @@
       <div class="form-group">
         <label for="select">Sản phẩm thuộc chuyên mục?</label>    
           <select class="form-control" name="cate_id">
-            <option value="0">Chọn chuyên mục</option>
+            <option value="">Chọn chuyên mục</option>
             @if(isset($cates))        
               <?php Response::showCates($cates,$selected); ?>
             @endif      

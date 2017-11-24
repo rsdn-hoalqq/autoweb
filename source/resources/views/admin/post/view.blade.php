@@ -10,6 +10,18 @@
 		</div>
 	</div>
 @endif
+<style>
+	.cropper-bg{
+		background-image: none;
+	}
+	img {
+	  max-width: 100%; /* This rule is very important, please do not ignore this! */
+	}
+	.cropper-drag-box {
+	    background-color: #fff !important;
+	}
+</style>
+
 <div class="panel panel-default">
 	<div class="panel-heading headings">CHI TIẾT SẢN PHẨM</div>
 	<div class="panel-body" style="height: 300px">
@@ -53,7 +65,7 @@
 									<img src="{{asset('files/icon/delete.jpg')}}" alt="icon delete" class="img-responsive iconDelete" data-toggle="tooltip" title="Xóa hình ảnh này!" onclick="deleteImage({!! $image['id']!!})">
 							</form>
 						</div>
-						<img src="{{asset('files/product/'.$image['path'])}}" alt="" class="img-responsive widthImage" data-toggle="modal" data-target="#exampleModal">
+						<img src="{{asset('files/product/'.$image['path'])}}" alt="" class="img-responsive widthImage cursor" data-toggle="modal" data-target="#exampleModal" onClick="doCropperImage('{{asset('files/product/'.$image['path'])}}')">
 					</div>					
 				</div>
 		    @endforeach

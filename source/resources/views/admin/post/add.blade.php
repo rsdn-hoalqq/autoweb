@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+@include('admin.common.message')
 <div class="panel panel-default">
 	<div class="panel-heading headings">FORM THÊM MỚI SẢN PHẨM</div>
 

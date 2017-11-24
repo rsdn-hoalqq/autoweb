@@ -20,6 +20,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('admin')->middleware('auth')->group(function(){
 	Route::get('/', function () {return view('layouts/admin');})->name('admin');
+	Route::post('/upload',['as'=>'upload','uses'=>'PostController@upload']);
 
 	Route::prefix('chuyen-muc')->group(function () {
 		Route::get('index','CategoriesController@index')->name('categoryList');

@@ -70,7 +70,7 @@ class PostController extends Controller
                     $img->path          = $imageAvatar;
                     $img->post_id    = $id;
                     $img->published     = 1;
-                    $img->name          = $request->nameImage[$key];
+                    $img->name          = $imageAvatar;
                     $img->save();
                 }
             }
@@ -89,12 +89,13 @@ class PostController extends Controller
             $alert = 'success';
         } catch (\Exception $errors) {
             DB::rollback();// something went wrong
+            dd($errors);
             $message = "Update sản phẩm không thành công";
             $alert = 'danger';
         }        
         // end test
-        $cates = Categories::select('id','name','parent_id')->orderBy('order_by')->get()->toArray();
-        return view('admin/post/add',compact('cates'));
+        $cates = Category::select('id','name','parent_id')->orderBy('order_by')->get()->toArray();
+        return view('admin/post/add',compact('cates'))->with(['alert'=>$alert,'message_flag'=>$message]);
     }
     public function getEdit($id){
         $cates = Category::select('id','name','parent_id')->orderBy('order_by')->get()->toArray();
@@ -155,5 +156,9 @@ class PostController extends Controller
             $alert = 'danger';
         } 
         return redirect()->route('listProduct')->with(['alert'=>$alert,'message_flag'=>$message]);
+    }
+
+    public function upload(Request $request){
+        dd($request->all());
     }
 }
