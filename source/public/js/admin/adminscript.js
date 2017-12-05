@@ -48,14 +48,9 @@ function doCropperImage(src){
 	$('#image').attr('src',src);
 	$('#image').cropper({
 		minContainerWidth: 900,
-		minContainerHeight:700,
-		// crop: function(e) {
-		// 	$('#withId').val(e.width);
-		//     $('#heightId').val(e.height);
-		// }
+		minContainerHeight:700
 	});
 	$('#myModal').css('display','block');
-	// $('.cropper-container').css('width','100%');
 }
 function closed(){
 	$('#myModal').css('display','none');
@@ -70,7 +65,6 @@ window.onclick = function(event) {
 // handle save image
 function cropperImage(id){
 	var nameImage = $('#image').attr("alt");
-	alert(nameImage);
 	$('#'+id).cropper('getCroppedCanvas').toBlob(function (blob) {
 		var formData = new FormData();
 		// set url		

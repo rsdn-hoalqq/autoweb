@@ -11,12 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', ['as'=>'home','uses'=>'HomeController@index']);
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('admin')->middleware('auth')->group(function(){
 	Route::get('/', function () {return view('layouts/admin');})->name('admin');
@@ -25,21 +23,16 @@ Route::prefix('admin')->middleware('auth')->group(function(){
 
 	Route::prefix('chuyen-muc')->group(function () {
 		Route::get('index','CategoriesController@index')->name('categoryList');
-
 		Route::get('add',function(){ 			
 			$cates = App\Category::select('id','name','parent_id')->orderBy('order_by')->get()->toArray();
 			return view('admin/category/add',compact('cates')); 
 		})->name('addCate');
-
 		Route::post('add',['as'=>'addCategory','uses'=>'CategoriesController@add']);
-
 		Route::get('edit/{id}','CategoriesController@getEdit');
 		Route::post('edit/{id}',['as'=>'postEdit','uses'=>'CategoriesController@postEdit']);
-
 		Route::get('delete/{id}','CategoriesController@delete');
-		Route::post('delete/{id}',['as'=>'deleteProduct','uses'=>'Post@deleteImage']);
+		Route::post('delete/{id}',['as'=>'deleteProduct','uses'=>'PostController@deleteImage']);
 	});
-
 
 	Route::prefix('post')->group(function(){
 		Route::get('index',['as'=>'listProduct','uses'=>'PostController@index']);
