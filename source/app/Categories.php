@@ -8,7 +8,7 @@ class Categories extends Model
 {
     protected $table = 'categories';
     protected $fillable = ['name','parent_id','slug','keywords'];
-    public function product(){
-    	return $this->hasMany('App\Product');
+    public function post(){
+    	return $this->hasMany('App\Post');
     }
 }

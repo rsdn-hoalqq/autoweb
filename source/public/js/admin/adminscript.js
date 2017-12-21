@@ -74,7 +74,6 @@ function cropperImage(id){
 		$.ajax({
 			url: urlpost,
 			method: "POST",
-			// cache: false,
 			data: formData,
 			processData: false,
 	    	contentType: false,
@@ -83,4 +82,19 @@ function cropperImage(id){
 		 	 }
 		});
 	});
+}
+
+function previewImage(imageId){
+	var file = this.files;
+
+	// var data = $('#theMyForm').serialize();
+	// console.log(file);
+	// $.ajax({
+	// 	type:'POST',
+	//    	url:baseUrl+"admin/upload",
+	//    	data:data,
+	//    	success:function(data){
+	//       	console.log(data);
+	//    	}
+	// });	
 }

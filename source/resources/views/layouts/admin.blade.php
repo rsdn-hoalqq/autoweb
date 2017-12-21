@@ -6,14 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>@yield('title','Quản Lý Danh Mục')</title>
 
-  <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('/css/admin-style.css') }}" rel="stylesheet">
-  <script type="text/javascript" src="{{ asset('/js/templateEditor/ckeditor/ckeditor.js') }}"></script>
+  <link href="{{ asset('/public/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('/public/css/admin-style.css') }}" rel="stylesheet">
+  <script type="text/javascript" src="{{ asset('/public/js/templateEditor/ckeditor/ckeditor.js') }}"></script>
   <script type="text/javascript">
     var baseUrl = "{{ asset('/')}}";
     var token = "{!! csrf_token()!!}";
   </script>
-  <script type="text/javascript" src="{{ asset('/js/jquery.min.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('/public/js/jquery.min.js') }}"></script>
   {{-- <script type="text/javascript" src="{{ asset('/js/admin/jquery-3.2.1.slim.min.js') }}"></script> --}}
   <!-- Fonts -->
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -27,7 +27,7 @@
   <nav class="navbar navbar-inverse">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="{{ route('admin')}}">Admin Manager</a>
+        <a class="navbar-brand" href="/">Admin Manager</a>
       </div>
       <ul class="nav navbar-nav navbar-right">
       @if (Auth::guest())
@@ -95,8 +95,8 @@
   </div>
 
   <!-- Scripts -->  
-  <script type="text/javascript" src="{{ asset('/js/bootstrap.min.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('/js/myscript.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('/js/admin/adminscript.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('/public/js/bootstrap.min.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('/public/js/myscript.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('/public/js/admin/adminscript.js') }}"></script>
 </body>
 </html>

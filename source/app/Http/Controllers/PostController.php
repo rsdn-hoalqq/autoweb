@@ -59,16 +59,17 @@ class PostController extends Controller
             if(!empty($files)){
                 foreach ($files as $key => $file) {
                     $img    = new Images;
+                    $path = $file->getClientOriginalName();
                     if(empty($request->nameImage[$key])){
-                        $imageAvatar = $file->getClientOriginalName();
+                        $imageAvatar = $request->txtName;
                     }else{
                         $imageAvatar = $request->nameImage[$key];
                     }
                     
-                    $file->move($destinationPath,$imageAvatar);
+                    $file->move($destinationPath,$path);
                     // save image
-                    $img->path          = $imageAvatar;
-                    $img->post_id    = $id;
+                    $img->path          = $path;
+                    $img->post_id       = $id;
                     $img->published     = 1;
                     $img->name          = $imageAvatar;
                     $img->save();
@@ -85,12 +86,12 @@ class PostController extends Controller
             }           
              
             DB::commit();// all good
-            $message = "Update sản phẩm thành công";
+            $message = "Thêm mới sản phẩm thành công";
             $alert = 'success';
         } catch (\Exception $errors) {
             DB::rollback();// something went wrong
             dd($errors);
-            $message = "Update sản phẩm không thành công";
+            $message = "Thêm mới sản phẩm không thành công";
             $alert = 'danger';
         }        
         // end test
@@ -114,15 +115,16 @@ class PostController extends Controller
             if(!empty($files)){
                 foreach ($files as $key => $file) {
                     $img    = new Images;
+                    $path = $file->getClientOriginalName();
                     if(empty($request->nameImage[$key])){
-                        $imageAvatar = $file->getClientOriginalName();
+                        $imageAvatar = $request->txtName;
                     }else{
                         $imageAvatar = $request->nameImage[$key];
                     }
-                    
-                    $file->move($destinationPath,$imageAvatar);
+
+                    $file->move($destinationPath,$path);
                     // save image
-                    $img->path          = $imageAvatar;
+                    $img->path          = $path;
                     $img->post_id       = $id;
                     $img->published     = 1;
                     $img->name          = $imageAvatar;
@@ -159,8 +161,7 @@ class PostController extends Controller
     }
 
     public function upload(Request $request){
-        $data = $request->file('croppedImage');
-        $files = $_FILES['croppedImage'];
+        $files = $request->file('image');
         return \Response::json($files);
     }
 }

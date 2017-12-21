@@ -12,6 +12,9 @@
 */
 
 Route::get('/', ['as'=>'home','uses'=>'HomeController@index']);
+Route::get('/import', ['as'=>'getImport','uses'=>'HomeController@getImport']);
+Route::post('/import', ['as'=>'postImport','uses'=>'CsvImportController@store']);
+// Route::post('/import', ['as'=>'postImport','uses'=>'HomeController@postImport']);
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
@@ -42,5 +45,12 @@ Route::prefix('admin')->middleware('auth')->group(function(){
 		Route::get('view/{id}',['as'=>'viewEdit','uses'=>'PostController@viewProduct']);
 		Route::post('edit/{id}',['as'=>'editProduct','uses'=>'PostController@postEdit']);
 		Route::post('delete/{id}',['as'=>'deleteProduct','uses'=>'PostController@deleteImage']);
+	});
+
+	// test locale
+	Route::get('welcome/{locale}', function ($locale) {
+	    App::setLocale($locale);
+	   	$locale = App::getLocale();
+	   	return __('validation.url',['attribute' => 'url']);
 	});
 });

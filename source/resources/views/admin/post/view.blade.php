@@ -62,10 +62,10 @@
 								<input type="hidden" name="_token" value="{!! csrf_token()!!}">
 								<input type="hidden" name="name" value="{!! $image['path']!!}">
 								<input type="hidden" name="product_id" value="{!! $product['id']!!}">
-									<img src="{{asset('files/icon/delete.jpg')}}" alt="icon delete" class="img-responsive iconDelete" data-toggle="tooltip" title="Xóa hình ảnh này!" onclick="deleteImage({!! $image['id']!!})">
+									<img src="{{asset('/public/files/icon/delete.jpg')}}" alt="icon delete" class="img-responsive iconDelete" data-toggle="tooltip" title="Xóa hình ảnh này!" onclick="deleteImage({!! $image['id']!!})">
 							</form>
 						</div>
-						<img src="{{asset('files/product/'.$image['path'])}}" alt="{{$image['path']}}" class="img-responsive widthImage cursor" data-toggle="modal" data-target="#exampleModal" onClick="doCropperImage('{{asset('files/product/'.$image['path'])}}')">
+						<img src="{{asset('/public/files/product/'.$image['path'])}}" alt="{{$image['path']}}" class="img-responsive widthImage cursor" data-toggle="modal" data-target="#exampleModal" onClick="doCropperImage('{{asset('/public/files/product/'.$image['path'])}}')">
 					</div>					
 				</div>
 		    @endforeach

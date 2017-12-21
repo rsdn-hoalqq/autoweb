@@ -6,7 +6,7 @@
           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 a-left">
             <div class="list-inline f-left topbar-left">
               <span class="icon-login">
-                <img src="{{ asset('files/front/icon_login.png') }}" alt="icon login">
+                <img src="{{ asset('/public/files/front/icon_login.png') }}" alt="icon login">
               </span>              
               <span class="li hidden-md hidden-sm hidden-xs"><a href="" data-toggle="modal" data-target="#dangky" title="Đăng ký">Đăng ký</a></span>
               {{-- <span class="li hidden-lg"><a href="{{ url('/auth/register') }}" title="Đăng ký">Đăng ký</a></span> --}}
@@ -18,12 +18,16 @@
           <div class="col-sm-8 col-md-8 col-lg-8 a-right hidden-xs">
             <div class="topbar-right f-right">              
               <nav>
-                <ul id="nav" class="nav">                  
-                  <li class="nav-item active"><a class="nav-link" href="/">Trang chủ</a></li>                  
+                <ul id="nav" class="nav">    
+                  <li class="nav-item active"><a class="nav-link" href="/">Trang chủ</a></li>               
+                  {{-- @foreach($cates as $cate)
+                  <li class="nav-item "><a class="nav-link" href="/{{ $cate['slug']}}">{{ $cate['name']}}</a></li>   
+                  @endforeach  --}}             
+                  {{-- <li class="nav-item active"><a class="nav-link" href="/">Trang chủ</a></li>                  
                   <li class="nav-item "><a class="nav-link" href="/gioi-thieu">Giới thiệu</a></li>                  
                   <li class="nav-item "><a class="nav-link" href="/collections/all">Sản phẩm</a></li>                  
                   <li class="nav-item "><a class="nav-link" href="/tin-tuc">Tin tức</a></li>                  
-                  <li class="nav-item "><a class="nav-link" href="/lien-he">Liên hệ</a></li>                  
+                  <li class="nav-item "><a class="nav-link" href="/lien-he">Liên hệ</a></li>  --}}                 
                 </ul> 
               </nav>
             </div>  
@@ -52,7 +56,7 @@
                   <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="policy">
                       <div class="policy-icon">
-                        <img src="{{ asset('files/front/service_1.png') }}" alt="Miễn phí vận chuyển trên toàn quốc">
+                        <img src="{{ asset('/public/files/front/service_1.png') }}" alt="Miễn phí vận chuyển trên toàn quốc">
                       </div>
                       <div class="policy-text">
                         <h4>Miễn phí vận chuyển trên toàn quốc</h4>
@@ -62,7 +66,7 @@
                   <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="policy">
                       <div class="policy-icon">
-                        <img src="{{ asset('files/front/service_2.png') }}" alt="Đổi trả hàng trong 30 ngày đầu">
+                        <img src="{{ asset('/public/files/front/service_2.png') }}" alt="Đổi trả hàng trong 30 ngày đầu">
                       </div>
                       <div class="policy-text">
                         <h4>Đổi trả hàng trong 30 ngày đầu</h4>
@@ -72,7 +76,7 @@
                   <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="policy">
                       <div class="policy-icon">
-                        <img src="{{ asset('files/front/service_3.png') }}" alt="Hỗ trợ khách hàng:">
+                        <img src="{{ asset('/public/files/front/service_3.png') }}" alt="Hỗ trợ khách hàng:">
                       </div>
                       <div class="policy-text">
                         <h4>Hỗ trợ khách hàng:</h4>
@@ -98,7 +102,7 @@
             <div class="mini-cart text-xs-center">
               <div class="heading-cart">
                 <a class="bg_cart" href="/cart" title="Giỏ hàng">
-                  <img alt="Giỏ hàng" src="{{ asset('files/front/icon_cart.png') }}">
+                  <img alt="Giỏ hàng" src="{{ asset('/public/files/front/icon_cart.png') }}">
                   <span class="count_item count_item_pr">0</span>
                   <div class="under-cart">
                     <span class="text-giohang hidden-xs">Giỏ hàng</span>

@@ -10,11 +10,12 @@
 	<meta name="copyright" content="">
 	<meta name="description" content="Mo ta trang web" />
 	<meta name="keywords" content="株式会社ピーエスシー,PSC,ピーエスシー, tag lien quan" />
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	{{-- <meta name="format-detection" content="telephone=no">	 --}}
-	<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-	<script src="{{asset('js/jquery.min.js')}}"></script>
-	<script src="{{asset('js/bootstrap.min.js')}}"></script>
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/front/mystyle.css')}}"></link>
+	<link rel="stylesheet" href="{{asset('/public/css/bootstrap.min.css')}}">
+	<script src="{{asset('/public/js/jquery.min.js')}}"></script>
+	<script src="{{asset('/public/js/bootstrap.min.js')}}"></script>
+	<link rel="stylesheet" type="text/css" href="{{ asset('/public/css/front/mystyle.css')}}"></link>
 </head>
 <body>
 	{{-- inlude header --}}
@@ -28,6 +29,6 @@
 	  	@yield('content')  
 	  	</div>
 	</div>
-	<script src="{{asset('js/front.js')}}"></script>
+	<script src="{{asset('/public/js/front.js')}}"></script>
 </body>
 </html>

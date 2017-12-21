@@ -11,11 +11,20 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="actives text-color"><a href="/"><span class="glyphicon glyphicon-home text-color" aria-hidden="true"></span></a></li>
-        <li><a href="#" class="text-color">Home</a></li>
-        <li><a href="#" class="text-color">About</a></li>
-        <li><a href="jligthBox.html" class="text-color">Gallery</a></li>
-        <li><a href="#" class="text-color">Góc Thư Họa</a></li>
-        <li><a href="slide.html" class="text-color">Slides</a></li>
+        <li><a href="/" class="text-color">Trang chủ</a>
+        </li>
+        {{-- @foreach($cates as $cate)
+          <li><a class="text-color" href="/{{ $cate['slug']}}">{{ $cate['name']}}</a></li>   
+        @endforeach --}}  
+        <li class="dropdown">
+          <a class="text-color" data-toggle="dropdown" href="#">Page 1
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Page 1-1</a></li>
+            <li><a href="#">Page 1-2</a></li>
+            <li><a href="#">Page 1-3</a></li>
+          </ul>
+        </li>
       </ul>
       {{-- <ul class="nav navbar-nav navbar-right">
         <li><a href="#" class="text-color"><span class="glyphicon glyphicon-log-in text-color"></span> Đăng nhập</a></li>

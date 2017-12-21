@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>@yield('title','Quản Lý Danh Mục')</title>
 
-  <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('/css/admin-style.css') }}" rel="stylesheet">
-  <script type="text/javascript" src="{{ asset('/js/templateEditor/ckeditor/ckeditor.js') }}"></script>
+  <link href="{{ asset('/public/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('/public/css/admin-style.css') }}" rel="stylesheet">
+  <script type="text/javascript" src="{{ asset('/public/js/templateEditor/ckeditor/ckeditor.js') }}"></script>
   <script type="text/javascript">
     var baseUrl = "{{ asset('/')}}";
   </script>
@@ -92,9 +92,9 @@
   </div>
 
   <!-- Scripts -->
-  <script type="text/javascript" src="{{ asset('/js/jquery.min.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('/js/bootstrap.min.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('/js/myscript.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('/js/admin/adminscript.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('/public/js/jquery.min.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('/public/js/bootstrap.min.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('/public/js/myscript.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('/public/js/admin/adminscript.js') }}"></script>
 </body>
 </html>

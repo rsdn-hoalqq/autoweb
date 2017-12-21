@@ -1,9 +1,9 @@
 @if(isset($data))
   <?php $selected = $data['cate_id'];?>
-  <form action="{!! route('editProduct',$data['id'])!!}" method="post" enctype="multipart/form-data">
+  <form action="{!! route('editProduct',$data['id'])!!}" method="post" enctype="multipart/form-data" id="theMyForm">
 @else
   <?php $selected = '0';?>
-  <form action="{!! route('postProduct')!!}" method="post" enctype="multipart/form-data">
+  <form action="{!! route('postProduct')!!}" method="post" enctype="multipart/form-data" id="theMyForm">
 @endif
 	<input type="hidden" name="_token" value="{!! csrf_token()!!}">
   
@@ -66,9 +66,9 @@
             @foreach($images as $image)
               <div class="col-sm-6 divImages img-thumbnail">
                 <div class="titleImage">
-                  <img src="{{asset('files/icon/delete.jpg')}}" alt="icon delete" class="img-responsive iconDeletes" data-toggle="tooltip" title="Xóa hình ảnh này!" onclick="deleteImage({!! $image['id']!!})">
+                  <img src="{{asset('/public/files/icon/delete.jpg')}}" alt="icon delete" class="img-responsive iconDeletes" data-toggle="tooltip" title="Xóa hình ảnh này!" onclick="deleteImage({!! $image['id']!!})">
                 </div>
-                <img src="{{asset('/files/product/'.$image['path'])}}" alt="{{$image['name']}}" class="img-responsive clsImageAdmin">
+                <img src="{{asset('/public/files/product/'.$image['path'])}}" alt="{{$image['name']}}" class="img-responsive clsImageAdmin">
               </div>
             @endforeach  
             </div> 
